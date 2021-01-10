@@ -1,0 +1,22 @@
+[
+    {
+        "filename"      :   "introduction",
+        "score"         :   0,
+        "hasScript"     :   true
+    },
+    {
+        "filename"      :   "variant",
+        "score"         :   0,
+        "hasScript"     :   true
+    },
+    {
+        "filename"      :   "step1",
+        "score"         :   100,
+        "hasScript"     :   true
+    },
+    {
+        "filename"      :   "results",
+        "score"         :   0,
+        "hasScript"     :   true
+    }
+]

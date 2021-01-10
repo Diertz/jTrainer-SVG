@@ -1,0 +1,53 @@
+{
+    "local": "Українська",
+    "lang": {
+        "TRAINER_NAME": "Примітиви",
+        "MAX_SCORE": "Кількість балів",
+        "NEXT_STEP": "Наступний крок",
+        "PREV_STEP": "Попередній крок",
+        "ENTER_TEXT": "Введіть текст",
+        "ENTER_VARIANT": "Введіть варіант",
+        "ENTER_LENGTH": "Довжина",
+        "ENTER_WIDTH": "Ширина",
+        "ENTER_HEIGHT": "Висота",
+        "CHOOSE_LANG": "Оберіть мову",
+        "CHOOSE_SELECT": "Оберіть елемент зі списку",
+		"TEACHER_HELP" : "Допомога викладача",
+		"ENTER_HELP_TEXT": "Опишіть з чим Вам потрібна допомога...",
+		"HELP_REQUEST_SEND": "Відправити",
+		"HELP_REQUEST_CLOSE": "Відмінити",
+		"CALCULATOR" : "Калькулятор",
+		"ALERT_WELL_DONE": "Відмінно!",
+        "ALERT_FAIL": "Погано!",
+        "ALERT_WRONG": "Помилка!",
+		"ALERT_STEP_SUCCESS": " Крок пройдений! Перейдіть до наступного.",
+        "ALERT_STEP_FAIL": " Крок провалений. Перейдіть до наступного.",
+        "ALERT_VARIANT_WRONG": "Введіть правильний варіант!",
+		"STEP_COUNT": "Кількість кроків",
+        "END_TRAINER": "Завершити сеанс",
+        "END_ARE_YOU_SURE": "Ви впевнені, що хочете завершити виконання тренажера?",
+        "END_TRAINER_CLOSE": "Продовжити поточний сеанс",
+        "END_TRAINER_SEND": "Завершити поточний сеанс",
+		"CHECK": "Перевірити",
+        "ATTEMPTS_LEFT": "Ще спроб - ",
+        "VARIANT_MESSAGE": "Введіть номер вашого варіанту",
+        "VARIANT": "Варіант",
+
+        "RESULTS_TITLE": "Ваші результати",
+        "RESULTS_START_TIME": "Час початку тестування",
+        "RESULTS_END_TIME": "Час завершення тестування",
+        "RESULTS_TIME_DIFF": "Час виконання",
+        "RESULTS_TIME_SEC": "сек.",
+        "RESULTS_YOUR_SCORE": "Ви набрали",
+		"STEP": "Крок",
+
+        "STEP1_NAME": "Вступ",
+        "STEP2_NAME": "Вибір варіанту",
+        "STEP3_NAME": "Крок 1",
+        "STEP4_NAME": "Результати",
+
+        
+        "STEP1_TITLE": "Крок 1. Бокс",
+        "STEP1_TASK": "Завдання: оберіть правильний порядок команд для створення елементу Бокс. Оберіть спочатку колір, потім розмір фігури."
+    }
+}
