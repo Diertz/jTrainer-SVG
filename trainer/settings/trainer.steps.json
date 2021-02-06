@@ -15,6 +15,11 @@
         "hasScript"     :   true
     },
     {
+        "filename"      :   "step2",
+        "score"         :   100,
+        "hasScript"     :   true
+    },
+    {
         "filename"      :   "results",
         "score"         :   0,
         "hasScript"     :   true

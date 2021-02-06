@@ -2,7 +2,7 @@ var VStep1;
 var currentImageNumber = 1;
 var step1 = function () {
     this.postDispatch = function () {
-
+        
         // store variant options
         var variantsValues = {
             "length": [50, 20, 15, 13, 25, 10, 55, 20, 10, 15],
@@ -49,59 +49,57 @@ var step1 = function () {
     this.mustache = function () {
         return {
             STEP1_INPUT_LENGTH: new TextInput('step1-input-length')
-            .placeholder("{{ENTER_LENGTH}}")
+            .placeholder("{{LENGTH}}")
             .render(),
 
             STEP1_INPUT_WIDTH: new TextInput('step1-input-width')
-            .placeholder("{{ENTER_WIDTH}}")
+            .placeholder("{{WIDTH}}")
             .render(),
 
             STEP1_INPUT_HEIGHT: new TextInput('step1-input-height')
-            .placeholder("{{ENTER_HEIGHT}}")
+            .placeholder("{{HEIGHT}}")
             .render()
         }
     }
-};
 
-function setTableValues(values, variant){
-    $("#boxlength").html(values.length[variant - 1]);
-    $("#boxwidth").html(values.width[variant - 1]);
-    $("#boxheight").html(values.height[variant - 1]);
-    $("#boxcolor").attr('src', 'img/step1/colors/' + variant + '.png');
-    $("#variant").text($("#variant").text() + variant);
-}
-
-function area_click(order, changeImageOrder, areasInImg){
-    $(".part").click(
-        function(){
-            if(order[0] == $(this).attr("id")){
-                $(this).css("fill", "green");
-                updateImage(order, changeImageOrder);
-                updateAreas(areasInImg);
-                order.shift();
+    function setTableValues(values, variant){
+        $("#boxlength").html(values.length[variant - 1]);
+        $("#boxwidth").html(values.width[variant - 1]);
+        $("#boxheight").html(values.height[variant - 1]);
+        $("#boxcolor").attr('src', 'img/step1/colors/' + variant + '.png');
+        $("#variant").text($("#variant").text() + variant);
+    }
+    
+    function area_click(order, changeImageOrder, areasInImg){
+        $(".part").click(
+            function(){
+                if(order[0] == $(this).attr("id")){
+                    $(this).css("fill", "green");
+                    updateImage(order, changeImageOrder);
+                    updateAreas(areasInImg);
+                    order.shift();
+                }
+                else{
+                    $(this).css("fill", "red");
+                    VStep1.validateArea();
+                }
             }
-            else{
-                $(this).css("fill", "red");
-                VStep1.validateArea();
-            }
+        )
+    }
+    
+    function updateImage(order, changeImageOrder){
+        if(changeImageOrder[0] == order[0]){
+            var img = (currentImageNumber + 1) >= 6 ? (++currentImageNumber + "-" + userVariant) : ++currentImageNumber;
+            $("#mainImg").attr("src", "img/step1/" + img + ".png")
+            changeImageOrder.shift();
         }
-    )
-}
-
-function updateImage(order, changeImageOrder){
-    if(changeImageOrder[0] == order[0]){
-        var img = (currentImageNumber + 1) >= 6 ? (++currentImageNumber + "-" + userVariant) : ++currentImageNumber;
-        $("#mainImg").attr("src", "img/step1/" + img + ".png")
-        changeImageOrder.shift();
     }
-}
-
-function updateAreas(areasInImg){
-    //$(".part:lt(" + areasInImg[1] + ")").show();
-    //$(".part:lt(" + areasInImg[0] + ")").hide();
-    areasInImg.shift();
-    $(".part:lt(" + areasInImg[0] + ")").show();
-    if(areasInImg.length == 0){
-        $(".step1-inputs").css("visibility", "visible");
+    
+    function updateAreas(areasInImg){
+        areasInImg.shift();
+        $(".part:lt(" + areasInImg[0] + ")").show();
+        if(areasInImg.length == 0){
+            $(".step1-inputs").css("visibility", "visible");
+        }
     }
-}
+};
