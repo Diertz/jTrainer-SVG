@@ -11,12 +11,17 @@
     },
     {
         "filename"      :   "step1",
-        "score"         :   100,
+        "score"         :   33,
         "hasScript"     :   true
     },
     {
         "filename"      :   "step2",
-        "score"         :   100,
+        "score"         :   33,
+        "hasScript"     :   true
+    },
+    {
+        "filename"      :   "step3",
+        "score"         :   33,
         "hasScript"     :   true
     },
     {
