@@ -46,7 +46,8 @@
         "STEP3_NAME": "Крок 1",
         "STEP4_NAME": "Крок 2",
         "STEP5_NAME": "Крок 3",
-        "STEP6_NAME": "Результати",
+        "STEP6_NAME": "Крок 4",
+        "STEP7_NAME": "Результати",
         
         "STEP1_TITLE": "Крок 1. Бокс",
         "STEP1_TASK": "Завдання: оберіть правильний порядок команд для створення елементу Бокс. Оберіть спочатку колір, потім розмір фігури.",
@@ -73,6 +74,35 @@
         "DEPTH": "Глибина",
 
         "STEP3_TITLE": "Крок 3. Розширені примітиви",
-        "STEP3_TASK": "Завдання: оберіть правильний порядок команд для створення Hedra родини Tetra з параметрами: Радіус 35; Family P, Q: 0.5; Axis Scaling P, Q, R: 20."
+        "STEP3_TASK": "Завдання: оберіть правильний порядок команд для створення Hedra родини Tetra з параметрами: Радіус 35; Family P, Q: 0.5; Axis Scaling P, Q, R: 20.",
+
+        "STEP4_TITLE": "Крок 4. Розширені примітиви 2",
+        "STEP4_TASK": "Завдання: : Створіть об’єкт з параметрами згідно варіанту. Таблицю варіантів наведено нижче.",
+        "TORUS_KNOT": "Torus Knot",
+        "CHAMFER_BOX": "Chamfer Box",
+        "CHAMFER_CYL": "Chamfer Cyl",
+        "OIL_TANK": "Oil Tank",
+        "CAPSULE": "Capsule",
+        "SPINDLE": "Spindle",
+        "L_EXT": "L Ext",
+        "GENGON": "Gengon",
+        "C_EXT": "C Ext",
+        "PRISM": "Prism",
+        "BASE_CURVE_RADIUS": "Base Curve Radius",
+        "CROSS_SECTION_RADIUS": "Cross Section Radius",
+        "P": "P",
+        "Q": "Q",
+        "FILLET": "Fillet",
+        "CAP_HEIGHT": "Cap Height",
+        "SIDE_LENGTH": "Side Length",
+        "FRONT_LENGTH": "Front Length",
+        "SIDE_WIDTH": "Side Width",
+        "FRONT_WIDTH": "Front Width",
+        "BACK_LENGTH": "Back Length",
+        "BACK_WIDTH": "Back Width",
+        "SIDE1_LENGTH": "Side1 Length",
+        "SIDE2_LENGTH": "Side2 Length",
+        "SIDE3_LENGTH": "Side3 Length",
+        "STEP4_TABL_HEADER1": "Примітив"
     }
 }
