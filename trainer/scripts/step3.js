@@ -23,7 +23,6 @@ var step3 = function () {
         .addValidator($('input[name="step3-input-axisR"]'), 20)
         .addValidator($('input[name="step3-input-radius"]'), 35)
         .setStrictMode(true).setIgnoreCase(false).enableStepFinishAlert(true);
-
         VStep3.addAreaSteps(order, order.length);
 
         $('button.check').click(function () {
