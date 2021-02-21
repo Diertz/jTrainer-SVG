@@ -202,7 +202,7 @@ var step4 = function () {
                 }
                 else{
                     $(this).css("fill", "red");
-                    VStep3.validateArea();
+                    VStep4.validateArea();
                 }
             }
         )

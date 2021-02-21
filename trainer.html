@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>jTrainer :: {{TRAINER_NAME}}</title>
     <meta charset="UTF-8"/>
@@ -35,41 +35,6 @@
     <script src="/javascripts/jtrainer/current/js/trainer.engine.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default">
-    <div class="navbar-header">
-        <div><a class="navbar-brand" href="#"><span class="trainer-brand"></span>{{TRAINER_NAME}}</a></div>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-        <div class="navbar-right info">
-            <div class="dropdown">
-                <button type="button" class="btn btn-link dropdown-toggle" id="menu" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="true" aria-label="Option Vertical"><span
-                        class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span></button>
-                <ul class="dropdown-menu" aria-labelledby="menu">
-                    <li><a href="#" data-toggle="modal" data-target="#aboutModal">About</a></li>
-                    <li><a href="#" class="page-loading text-muted"><span class="is-faded">Page generated in </span></a></li>
-                </ul>
-            </div>
-            <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="aboutModalLabel">About</h4>
-                        </div>
-                        <div id="aboutBody" class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
 <div class="modal modal-static fade" id="cogwheel-modal" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -89,7 +54,7 @@
 </section>
 
 <div class="text-center animated bounceInUp">
-    <div class="btn-group btn-group-md rotators">
+    <div class="btn-group btn-group-md rotators d-flex justify-content-center">
         <a class="teacher-help btn btn-warning col-xs-6 col-md-4" data-toggle="modal" data-target="#helpModal">{{TEACHER_HELP}}</a>
         <a id="endTrainer" class="btn btn-danger col-xs-6 col-md-4" data-toggle="modal" data-target="#endModal">{{END_TRAINER}}</a>
         <a id="nextController" href="javascript:void(0)" class="btn btn-default col-xs-6 col-md-4">{{NEXT_STEP}}</a>
@@ -160,10 +125,3 @@
 </body>
 </html>
 <script type="text/javascript" src="/javascripts/jtrainer/current/js/additions/html2canvas.js" async></script>
-<script type="text/javascript">
-    /* $("#calc").click(function () {
-     $('div.calculator').load("/javascripts/jtrainer/current/calc.html").css('display', 'block').draggable({
-     cancel: '#result'
-     });
-     });*/
-</script>

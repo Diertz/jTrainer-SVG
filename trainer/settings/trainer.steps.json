@@ -5,11 +5,6 @@
         "hasScript"     :   true
     },
     {
-        "filename"      :   "variant",
-        "score"         :   0,
-        "hasScript"     :   true
-    },
-    {
         "filename"      :   "step1",
         "score"         :   25,
         "hasScript"     :   true
