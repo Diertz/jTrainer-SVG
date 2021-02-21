@@ -2,7 +2,7 @@ var VStep1;
 var currentImageNumber = 1;
 var step1 = function () {
     this.postDispatch = function () {
-        
+        userVariant = document.getElementById("variant-select").value;
         // store variant options
         var variantsValues = {
             "length": [50, 20, 15, 13, 25, 10, 55, 20, 10, 15],

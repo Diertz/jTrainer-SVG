@@ -46,25 +46,6 @@ html {
     min-height: 100%;
 }
 
-.navbar-brand {
-    color: #efc84a !important;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-.navbar-brand .trainer-brand {
-    background: url("/javascripts/jtrainer/current/img/trainer/trainer-brand.png") no-repeat;
-    display: inline-block;
-    vertical-align: middle;
-    width: 191px;
-    height: 50px;
-    margin: 0 10px 0 0;
-}
-
-.navbar-brand:hover {
-    color: #d14f3a !important;
-}
-
 section.stepspace {
     margin: 0 20px;
 }

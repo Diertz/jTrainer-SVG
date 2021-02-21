@@ -1,7 +1,8 @@
 {
     "LANGUAGES": {
 		"ua": "Українська",
-        "ru": "Русский"
+        "ru": "Русский",
+        "en": "English"
     },
     "DEFAULT_LANG": "ua",
     "TRAINER_SCORE": 100,

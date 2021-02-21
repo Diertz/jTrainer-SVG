@@ -3060,7 +3060,7 @@ var Validator = null;
            this.validateArea = function () {
                 this.validate();
                 if (attempts <= 0) {
-                    $('#svgmap').hide();
+                    $('.part').hide();
                 }
             };
             
