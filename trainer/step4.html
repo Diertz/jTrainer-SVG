@@ -212,30 +212,30 @@
 				<path id="42" class="part" d="m 1797.2363,435.75904 -10e-5,20.1584 90.5723,0.37504 -0.094,-20.34592 z">
 			</a>
 
-			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="655" width="170" height="160">
+			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="655" width="85" height="160">
 				{{{STEP4_INPUT1}}}
 			</foreignObject>
 
-			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="685" width="170" height="160">
+			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="685" width="85" height="160">
 				{{{STEP4_INPUT2}}}
 			</foreignObject>
 
-			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="715" width="170" height="160">
+			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="715" width="85" height="160">
 				{{{STEP4_INPUT3}}}
 			</foreignObject>
 
-			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="745" width="170" height="160">
+			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="745" width="85" height="160">
 				{{{STEP4_INPUT4}}}
 			</foreignObject>
-			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="715" width="170" height="160">
+			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="715" width="85" height="160">
 				{{{STEP4_INPUT5}}}
 			</foreignObject>
 
-			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="745" width="170" height="160">
+			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="745" width="85" height="160">
 				{{{STEP4_INPUT6}}}
 			</foreignObject>
 
-			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="745" width="170" height="160">
+			<foreignObject style="visibility: hidden;" class="step4-inputs" x="1700" y="745" width="85" height="160">
 				{{{STEP4_INPUT7}}}
 			</foreignObject>
 		</svg>
@@ -244,33 +244,35 @@
 
     <script>
 		$(function() {
-			var positions = getForeignObjectsYPositions();
-			for (var i = 0; i < positions.length; i++) {
-				$('.step4-inputs:eq(' + i + ')').attr("y", positions[i]);
+			var positions = getForeignObjectsPositions();
+			for (var i = 0; i < positions.length; i += 2) {
+				$('.step4-inputs:eq(' + i / 2 + ')').attr("x", positions[i]);
+				$('.step4-inputs:eq(' + i / 2 + ')').attr("y", positions[i + 1]);
 			}
 		});
 		
-		function getForeignObjectsYPositions() {
+		function getForeignObjectsPositions() {
 			switch (userVariant) {
 				case '1':
-					return [470, 530, 560, 665];
+					return [1798, 475, 1797, 531, 1797, 559, 1794, 673];
 				case '2':
-					return [630, 665, 700, 735];
+					return [1794, 645, 1794, 670, 1794, 696, 1794, 722];
 				case '3':
+					return [1778, 600, 1778, 626, 1778, 652];
 				case '4':
-					return [595, 630, 665];
+					return [1796, 604, 1796, 630, 1796, 656];
 				case '5':
-					return [640, 675];
+					return [1794, 650, 1794, 676];
 				case '6':
-					return [570, 605, 640];
+					return [1795, 584, 1795, 610, 1795, 636];
 				case '7':
-					return [630, 665, 700, 735, 770];
+					return [1793, 642, 1793, 668, 1793, 708, 1793, 732, 1793, 767];
 				case '8':
-					return [665, 700, 735, 770];
+					return [1792, 685, 1792, 711, 1792, 737, 1792, 765];
 				case '9':
-					return [550, 580, 610, 640, 670, 700, 730];
+					return [1794, 568, 1794, 594, 1794, 620, 1794, 656, 1794, 682, 1794, 708, 1794, 740];
 				case '10':
-					return [680, 715, 750, 785];
+					return [1797, 698, 1797, 727, 1797, 753, 1797, 780];
 				default:
 					return [];
 			}

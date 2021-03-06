@@ -1766,6 +1766,7 @@ var LateX = null;
             if (typeof n === "string")
                 this.setName(n);
             var placeholder = '{{ENTER_TEXT}}';
+            var autocomplete = "on";
             var maxLength = 100;
 
             /**
@@ -1779,6 +1780,18 @@ var LateX = null;
                 placeholder = text;
                 return this;
             };
+
+            /**
+             * Sets autocomplete option
+             * @param option {String} autocomplete option
+             * @returns {TextInput} current object {flow)
+             */
+            this.autocomplete = function (option) {
+                if (typeof option !== "string")
+                    throw new IllegalArgumentException("Autocomplete should be a string");
+                autocomplete = option;
+                return this;
+            }
 
             /**
              * Sets an maxlength for a input
@@ -1812,7 +1825,7 @@ var LateX = null;
                 if (!this.getName())
                     throw new Error('Please check element\'s name. It\'s empty.');
                 var result = '<div class="form-group" for="' + this.getName() + '">\n';
-                result += '<input' + this.getParams() + 'type="text" placeholder="' + placeholder + '" maxlength="' + maxLength + '">\n';
+                result += '<input' + this.getParams() + 'type="text" placeholder="' + placeholder + '" autocomplete="' + autocomplete + '" maxlength="' + maxLength + '">\n';
                 result += '</div>\n';
                 if (_Templatetor.templatable(result))
                     result = new _Templatetor().setTemplate(result).render();

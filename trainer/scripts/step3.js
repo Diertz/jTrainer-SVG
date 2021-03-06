@@ -38,27 +38,33 @@ var step3 = function () {
     this.mustache = function () {
         return {
             STEP3_INPUT_FAMILYP: new TextInput('step3-input-familyP')
-            .placeholder("P")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
     
             STEP3_INPUT_FAMILYQ: new TextInput('step3-input-familyQ')
-            .placeholder("Q")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
     
             STEP3_INPUT_AXISP: new TextInput('step3-input-axisP')
-            .placeholder("P")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
 
             STEP3_INPUT_AXISQ: new TextInput('step3-input-axisQ')
-            .placeholder("Q")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
 
             STEP3_INPUT_AXISR: new TextInput('step3-input-axisR')
-            .placeholder("R")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
 
             STEP3_INPUT_RADIUS: new TextInput('step3-input-radius')
-            .placeholder("{{RADIUS}}")
+            .placeholder("")
+            .autocomplete("off")
             .render()
         }
     }
