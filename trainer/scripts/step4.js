@@ -93,31 +93,38 @@ var step4 = function () {
             STEP4_TABL_HEADER8: I18N.getConstants()[params[6]],
 
             STEP4_INPUT1: new TextInput(step4Template + params[0].toLowerCase())
-            .placeholder("{{" + params[0] + "}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
 
             STEP4_INPUT2: new TextInput(step4Template + params[1].toLowerCase())
-            .placeholder("{{" + params[1] + "}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
 
             STEP4_INPUT3: new TextInput(step4Template + params[2]?.toLowerCase())
-            .placeholder("{{" + params[2] + "}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
 
             STEP4_INPUT4: new TextInput(step4Template + params[3]?.toLowerCase())
-            .placeholder("{{" + params[3] + "}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
 
             STEP4_INPUT5: new TextInput(step4Template + params[4]?.toLowerCase())
-            .placeholder("{{" + params[4] + "}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
 
             STEP4_INPUT6: new TextInput(step4Template + params[5]?.toLowerCase())
-            .placeholder("{{" + params[5] + "}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
 
             STEP4_INPUT7: new TextInput(step4Template + params[6]?.toLowerCase())
-            .placeholder("{{" + params[6] + "}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
         }
     }

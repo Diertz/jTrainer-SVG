@@ -132,19 +132,19 @@
 				<path id="24" class="part" d="m 1796.5825,409.2622 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
 			</a>
 
-			<foreignObject style="visibility: hidden;" class="step2-inputs" x="1740" y="655" width="100" height="160">
+			<foreignObject style="visibility: hidden;" class="step2-inputs" x="1792" y="655" width="85" height="160">
 				{{{STEP2_INPUT1}}}
 			</foreignObject>
 
-			<foreignObject style="visibility: hidden;" class="step2-inputs" x="1740" y="685" width="100" height="160">
+			<foreignObject style="visibility: hidden;" class="step2-inputs" x="1792" y="685" width="85" height="160">
 				{{{STEP2_INPUT2}}}
 			</foreignObject>
 
-			<foreignObject style="visibility: hidden;" class="step2-inputs" x="1740" y="715" width="100" height="160">
+			<foreignObject style="visibility: hidden;" class="step2-inputs" x="1792" y="715" width="85" height="160">
 				{{{STEP2_INPUT3}}}
 			</foreignObject>
 
-			<foreignObject style="visibility: hidden;" class="step2-inputs" x="1740" y="745" width="100" height="160">
+			<foreignObject style="visibility: hidden;" class="step2-inputs" x="1792" y="745" width="85" height="160">
 				{{{STEP2_INPUT4}}}
 			</foreignObject>
 		</svg>
@@ -152,30 +152,32 @@
 	</div>
 	<script>
 		$(function() {
-			var positions = getForeignObjectsYPositions();
-			for (var i = 0; i < positions.length; i++) {
-				$('.step2-inputs:eq(' + i + ')').attr("y", positions[i]);
+			var positions = getForeignObjectsPositions();
+			for (var i = 0; i < positions.length; i += 2) {
+				$('.step2-inputs:eq(' + i / 2 + ')').attr("x", positions[i]);
+				$('.step2-inputs:eq(' + i / 2 + ')').attr("y", positions[i + 1]);
 			}
 		});
 		
-		function getForeignObjectsYPositions() {
+		function getForeignObjectsPositions() {
 			switch (userVariant) {
 				case '1':
-				case '6':
 				case '8':
-					return [655, 685, 715];
+					return [1806, 668, 1806, 693, 1806, 718];
 				case '2':
 				case '9':
-					return [665, 765];
+					return [1782, 675, 1782, 765];
 				case '3':
 				case '10':
-					return [655, 685, 770];
+					return [1805, 666, 1805, 692, 1805, 772];
 				case '4':
-					return [655, 685, 715, 805];
+					return [1805, 667, 1805, 692, 1805, 720, 1805, 807];
 				case '5':
-					return [655, 685, 795];
+					return [1798, 667, 1798, 692, 1798, 795];
+				case '6':
+					return [1783, 668, 1783, 696, 1783, 724];
 				case '7':
-					return [665];
+					return [1781, 675];
 				default:
 					return [];
 			}

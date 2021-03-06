@@ -80,16 +80,20 @@ var step2 = function () {
             STEP2_TABL_HEADER5: I18N.getConstants()[params[3]],
 
             STEP2_INPUT1: new TextInput(step2Template + params[0].toLowerCase())
-            .placeholder("{{" + params[0] + "}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
             STEP2_INPUT2: new TextInput(step2Template + params[1]?.toLowerCase())
-            .placeholder("{{" + params[1] + "}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
             STEP2_INPUT3: new TextInput(step2Template + params[2]?.toLowerCase())
-            .placeholder("{{" + params[2] + "}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
             STEP2_INPUT4: new TextInput(step2Template + params[3]?.toLowerCase())
-            .placeholder("{{" + params[3] + "}}")
+            .placeholder("")
+            .autocomplete("off")
             .render()
         }
     }

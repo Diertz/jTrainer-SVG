@@ -5,6 +5,11 @@
         "hasScript"     :   true
     },
     {
+        "filename"      :   "instruction",
+        "score"         :   0,
+        "hasScript"     :   true
+    },
+    {
         "filename"      :   "step1",
         "score"         :   25,
         "hasScript"     :   true

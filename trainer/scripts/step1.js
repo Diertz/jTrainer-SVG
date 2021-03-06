@@ -1,8 +1,8 @@
 var VStep1;
 var currentImageNumber = 1;
+var userVariant = document.getElementById("variant-select").value;
 var step1 = function () {
     this.postDispatch = function () {
-        userVariant = document.getElementById("variant-select").value;
         // store variant options
         var variantsValues = {
             "length": [50, 20, 15, 13, 25, 10, 55, 20, 10, 15],
@@ -49,15 +49,18 @@ var step1 = function () {
     this.mustache = function () {
         return {
             STEP1_INPUT_LENGTH: new TextInput('step1-input-length')
-            .placeholder("{{LENGTH}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
 
             STEP1_INPUT_WIDTH: new TextInput('step1-input-width')
-            .placeholder("{{WIDTH}}")
+            .placeholder("")
+            .autocomplete("off")
             .render(),
 
             STEP1_INPUT_HEIGHT: new TextInput('step1-input-height')
-            .placeholder("{{HEIGHT}}")
+            .placeholder("")
+            .autocomplete("off")
             .render()
         }
     }
