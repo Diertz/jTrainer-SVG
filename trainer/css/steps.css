@@ -1,48 +1,47 @@
 .map {
-    position: relative;
-    text-align: center;
-    width: 100%;
+  position: relative;
+  text-align: center;
+  width: 100%;
 }
 
-svg{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: inline !important;
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: inline !important;
 }
 
-.part{
-    opacity: .2;
-    fill: blue;
+.part {
+  opacity: 0.2;
+  fill: blue;
 }
 
-.part:hover{
-    transition: opacity .2s ease;
-    opacity: .5;
-    fill: blue;
+.part:hover {
+  transition: opacity 0.2s ease;
+  opacity: 0.5;
+  fill: blue;
 }
 
-foreignObject input[type="text"]
-{
-    font-size:14px;
-    color: white;
-    height: 20px;
+foreignObject input[type="text"] {
+  font-size: 14px;
+  color: white;
+  height: 20px;
 }
 
 #mainImg {
-    max-width: 100%;
-    max-height: 100%;
-    width: 90%;
-    height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: 90%;
+  height: auto;
 }
 
 foreignObject {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .instruction-text {
-    padding-left: 50px;
-    padding-bottom: 110px;
+  padding-left: 50px;
+  padding-bottom: 110px;
 }
