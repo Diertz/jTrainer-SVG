@@ -1,127 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>{{TRAINER_NAME}}</title>
-    <meta charset="UTF-8"/>
-    <meta name="description" content=""/>
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="/javascripts/jtrainer/current/img/trainer/trainer-favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/javascripts/jtrainer/current/img/trainer/trainer-favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      href="/javascripts/jtrainer/current/img/trainer/trainer-favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="/javascripts/jtrainer/current/img/trainer/trainer-favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="/javascripts/jtrainer/current/css/animate.css"
+      type="text/css"
+    />
 
     <script>
-        var startTime = (new Date()).getTime();
+      var startTime = new Date().getTime();
     </script>
     <script src="/javascripts/jtrainer/current/js/jquery.min.js"></script>
     <script>
-        $(window).load(function () {
-            var endTime = (new Date()).getTime();
-            var secondsLoading = ((endTime - startTime) / 1000).toFixed(4);
-            $('.page-loading').append(secondsLoading + ' seconds.');
-        });
+      $(window).load(function () {
+        var endTime = new Date().getTime();
+        var secondsLoading = ((endTime - startTime) / 1000).toFixed(4);
+        $(".page-loading").append(secondsLoading + " seconds.");
+      });
     </script>
     <script src="/javascripts/jtrainer/current/js/mustache.js"></script>
 
-    <link rel="stylesheet" href="/javascripts/jtrainer/current/css/animate.css" type="text/css"/>
-
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="/javascripts/jtrainer/current/css/bootstrap.min.css" type="text/css"/>
-    <script src="/javascripts/jtrainer/current/js/bootstrap.min.js" async></script>
+    <link
+      rel="stylesheet"
+      href="/javascripts/jtrainer/current/css/bootstrap.min.css"
+      type="text/css"
+    />
+    <script
+      src="/javascripts/jtrainer/current/js/bootstrap.min.js"
+      async
+    ></script>
 
     <!-- jTrainer's styles -->
-    <link rel="stylesheet" href="/javascripts/jtrainer/current/css/trainer.style.css" type="text/css"/>
-    <link rel="stylesheet" href="css/trainer.custom.css" type="text/css"/>
+    <link
+      rel="stylesheet"
+      href="/javascripts/jtrainer/current/css/trainer.style.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/trainer.custom.css" type="text/css" />
 
     <!-- jTrainer's engine script -->
     <script src="/javascripts/jtrainer/current/js/trainer.engine.js"></script>
-</head>
-<body>
-<div class="modal modal-static fade" id="cogwheel-modal" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
+  </head>
+  <body>
+    <div
+      class="modal modal-static fade"
+      id="cogwheel-modal"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-body">
-                <div class="text-center">
-                    <img src="/javascripts/jtrainer/current/img/trainer/trainer-cogwheel.gif" class="icon"/>
-                    <h4><span id="cogwheel-desc">Processing</span>... </h4>
-                </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <img
+                src="/javascripts/jtrainer/current/img/trainer/trainer-cogwheel.gif"
+                class="icon"
+              />
+              <h4><span id="cogwheel-desc">Processing</span>...</h4>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<section class="stepspace" style="position: relative">
-    <div class="calculator" id="calculator"></div>
-    <ul class="breadcrumb bc-steps"></ul>
-    <!-- Steps will be loaded here -->
-</section>
+    <section class="stepspace" style="position: relative">
+      <div class="calculator" id="calculator"></div>
+      <ul class="breadcrumb bc-steps"></ul>
+      <!-- Steps will be loaded here -->
+    </section>
 
-<div class="text-center animated bounceInUp">
-    <div class="btn-group btn-group-md rotators d-flex justify-content-center">
-        <a class="teacher-help btn btn-warning col-xs-6 col-md-4" data-toggle="modal" data-target="#helpModal">{{TEACHER_HELP}}</a>
-        <a id="endTrainer" class="btn btn-danger col-xs-6 col-md-4" data-toggle="modal" data-target="#endModal">{{END_TRAINER}}</a>
-        <a id="nextController" href="javascript:void(0)" class="btn btn-default col-xs-6 col-md-4">{{NEXT_STEP}}</a>
+    <div class="text-center animated bounceInUp">
+      <div
+        class="btn-group btn-group-md rotators d-flex justify-content-center"
+      >
+        <a
+          class="teacher-help btn btn-warning col-xs-6 col-md-4"
+          data-toggle="modal"
+          data-target="#helpModal"
+          >{{TEACHER_HELP}}</a
+        >
+        <a
+          id="endTrainer"
+          class="btn btn-danger col-xs-6 col-md-4"
+          data-toggle="modal"
+          data-target="#endModal"
+          >{{END_TRAINER}}</a
+        >
+        <a
+          id="nextController"
+          href="javascript:void(0)"
+          class="btn btn-default col-xs-6 col-md-4"
+          >{{NEXT_STEP}}</a
+        >
+      </div>
     </div>
-</div>
 
-<!-- This is modal popup which shows up after click on "Teacher Help" button -->
-<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel">
-    <div class="modal-dialog" role="document">
+    <!-- This is modal popup which shows up after click on "Teacher Help" button -->
+    <div
+      class="modal fade"
+      id="helpModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="helpModalLabel"
+    >
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeButton"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="helpModalLabel">{{TEACHER_HELP}}</h4>
-            </div>
-            <div class="modal-body">
-                <label class="control-label">{{ENTER_HELP_TEXT}}</label>
-                <input type="text" class="form-control" id="helpInput"/>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{HELP_REQUEST_CLOSE}}</button>
-                <button type="button" class="btn btn-primary" onclick="Service.getHelpModal()">{{HELP_REQUEST_SEND}}
-                </button>
-            </div>
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              id="closeButton"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="helpModalLabel">{{TEACHER_HELP}}</h4>
+          </div>
+          <div class="modal-body">
+            <label class="control-label">{{ENTER_HELP_TEXT}}</label>
+            <input type="text" class="form-control" id="helpInput" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              {{HELP_REQUEST_CLOSE}}
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="Service.getHelpModal()"
+            >
+              {{HELP_REQUEST_SEND}}
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-- This is modal popup which shows up after click on "End trainer" button -->
-<div class="modal fade" id="endModal" tabindex="-1" role="dialog" aria-labelledby="endModalLabel">
-    <div class="modal-dialog" role="document">
+    <!-- This is modal popup which shows up after click on "End trainer" button -->
+    <div
+      class="modal fade"
+      id="endModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="endModalLabel"
+    >
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeButton"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="endModalLabel">{{END_TRAINER}}</h4>
-            </div>
-            <div class="modal-body">
-                <label class="control-label">{{END_ARE_YOU_SURE}}</label>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{END_TRAINER_CLOSE}}</button>
-                <button type="button" class="btn btn-primary" onclick="Service.pushResultsEarly()">
-                    {{END_TRAINER_SEND}}
-                </button>
-            </div>
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              id="closeButton"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="endModalLabel">{{END_TRAINER}}</h4>
+          </div>
+          <div class="modal-body">
+            <label class="control-label">{{END_ARE_YOU_SURE}}</label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              {{END_TRAINER_CLOSE}}
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="Service.pushResultsEarly()"
+            >
+              {{END_TRAINER_SEND}}
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<div class="progress trainer-progress-bar">
-    <div class="progress-bar"></div>
-</div>
+    <div class="progress trainer-progress-bar">
+      <div class="progress-bar"></div>
+    </div>
 
-<div class="alert alert-dismissible alert-success validation-alert validation-alert-success">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>{{ALERT_WELL_DONE}}</strong>{{ALERT_STEP_SUCCESS}}
-</div>
-<div class="alert alert-dismissible alert-danger validation-alert validation-alert-danger">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>{{ALERT_FAIL}}</strong> {{ALERT_STEP_FAIL}}
-</div>
-<div class="alert alert-dismissible alert-danger validation-alert validation-alert-variant">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>{{ALERT_WRONG}}</strong> {{ALERT_VARIANT_WRONG}}
-</div>
-
-</body>
+    <div
+      class="alert alert-dismissible alert-success validation-alert validation-alert-success"
+    >
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>{{ALERT_WELL_DONE}}</strong>{{ALERT_STEP_SUCCESS}}
+    </div>
+    <div
+      class="alert alert-dismissible alert-danger validation-alert validation-alert-danger"
+    >
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>{{ALERT_FAIL}}</strong> {{ALERT_STEP_FAIL}}
+    </div>
+    <div
+      class="alert alert-dismissible alert-danger validation-alert validation-alert-variant"
+    >
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong>{{ALERT_WRONG}}</strong> {{ALERT_VARIANT_WRONG}}
+    </div>
+  </body>
 </html>
-<script type="text/javascript" src="/javascripts/jtrainer/current/js/additions/html2canvas.js" async></script>
+<script
+  type="text/javascript"
+  src="/javascripts/jtrainer/current/js/additions/html2canvas.js"
+  async
+></script>
