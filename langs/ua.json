@@ -65,7 +65,7 @@
         "SPHERE": "Сфера",
         "CYLINDER": "Циліндр",
         "TUBE": "Труба",
-        "TORUS": "Торус",
+        "TORUS": "Тор",
         "PYRAMID": "Піраміда",
         "TEAPOT": "Чайник",
         "RADIUS": "Радіус",
@@ -80,7 +80,7 @@
 
         "STEP4_TITLE": "Крок 4. Побудова розширених примітивів",
         "STEP4_TASK": "Завдання: В командній панелі інтерфейсу натисніть в правильному порядку піктограми команд для створення об’єкту з параметрами згідно варіанту.",
-        "TORUS_KNOT": "Torius Knot",
+        "TORUS_KNOT": "Torus Knot",
         "CHAMFER_BOX": "Chamfer Box",
         "CHAMFER_CYL": "Chamfer Cyl",
         "OIL_TANK": "Oil Tank",
