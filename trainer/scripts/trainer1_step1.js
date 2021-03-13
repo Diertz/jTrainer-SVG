@@ -3,21 +3,22 @@ var currentImageNumber = 1;
 
 var trainer1_step1 = function () {
   this.postDispatch = function () {
+    $("#endTrainer").removeClass("disabled btn-default");
+    $(".part:gt(5)").hide();
+    $(".part:gt(24)").css("opacity", "0");
+
     var variantsValues = {
       length: [50, 20, 15, 13, 25, 10, 55, 20, 10, 15],
       width: [30, 80, 23, 24, 35, 10, 44, 30, 15, 45],
       height: [25, 10, 60, 10, 45, 10, 62, 20, 90, 50],
       color: [75, 76, 77, 79, 80, 81, 82, 85, 86, 88],
     };
-
-    setTableValues(variantsValues, userVariant);
     var colorAreaId = variantsValues.color[userVariant - 1];
     var order = ["1", "7", "14", "25", colorAreaId];
     var areasInImg = ["6", "13", "24", "25", "89"];
     var changeImageOrder = ["1", "7", "14", "25", colorAreaId];
-    $("#endTrainer").removeClass("disabled btn-default");
-    $(".part:gt(5)").hide();
-    $(".part:gt(24)").css("opacity", "0");
+
+    setTableValues(variantsValues, userVariant);
     area_click(order, changeImageOrder, areasInImg);
 
     VStep1 = new Validator();
@@ -34,16 +35,18 @@ var trainer1_step1 = function () {
         variantsValues.height[userVariant - 1]
       )
       .setStrictMode(true)
-      .setIgnoreCase(false)
-      .enableStepFinishAlert(true);
+      .enableStepFinishAlert(true)
+      .addAreaSteps(order, order.length);
 
-    VStep1.addAreaSteps(order, order.length);
     $("button.check").click(function () {
       VStep1.setAttemptsOnCheckButton($(this));
       VStep1.validate();
       if (VStep1.getFulfilled() && VStep1.getAttempts() > 0) {
         $(".step1-inputs").css("visibility", "hidden");
-        $("#mainImg").attr("src", "img/step1/7-" + userVariant + ".png");
+        $("#mainImg").attr(
+          "src",
+          "img/trainer1-step1/7-" + userVariant + ".png"
+        );
       }
     });
   };
@@ -54,12 +57,10 @@ var trainer1_step1 = function () {
         .placeholder("")
         .autocomplete("off")
         .render(),
-
       STEP1_INPUT_WIDTH: new TextInput("step1-input-width")
         .placeholder("")
         .autocomplete("off")
         .render(),
-
       STEP1_INPUT_HEIGHT: new TextInput("step1-input-height")
         .placeholder("")
         .autocomplete("off")
@@ -71,7 +72,7 @@ var trainer1_step1 = function () {
     $("#boxlength").html(values.length[variant - 1]);
     $("#boxwidth").html(values.width[variant - 1]);
     $("#boxheight").html(values.height[variant - 1]);
-    $("#boxcolor").attr("src", "img/step1/colors/" + variant + ".png");
+    $("#boxcolor").attr("src", "img/trainer1-step1/colors/" + variant + ".png");
     $("#variant").text($("#variant").text() + variant);
   }
 
@@ -95,7 +96,7 @@ var trainer1_step1 = function () {
         currentImageNumber + 1 >= 6
           ? ++currentImageNumber + "-" + userVariant
           : ++currentImageNumber;
-      $("#mainImg").attr("src", "img/step1/" + img + ".png");
+      $("#mainImg").attr("src", "img/trainer1-step1/" + img + ".png");
       changeImageOrder.shift();
     }
   }

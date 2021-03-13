@@ -1,5 +1,5 @@
 var userVariant;
-var trainer1_introduction = function () {
+var introduction = function () {
   this.preDispatch = function () {};
   this.postDispatch = function () {
     $("div.flag-icon").each(function () {

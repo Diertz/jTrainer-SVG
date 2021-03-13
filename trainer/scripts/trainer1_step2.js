@@ -6,6 +6,10 @@ const step2Template = "step2-input-";
 
 var trainer1_step2 = function () {
   this.postDispatch = function () {
+    $("#step1").empty();
+    $(".step2-inputs:gt(" + (params.length - 1).toString() + ")").remove();
+    $(".part:gt(5)").hide();
+
     var variantsValues = {
       type: [20, 15, 16, 22, 17, 23, 18, 20, 15, 16],
       param1: [40, 45, 30, 45, 40, 40, 25, 35, 30, 3],
@@ -13,15 +17,12 @@ var trainer1_step2 = function () {
       param3: [10, null, 50, 20, 20, 35, null, 30, null, 50],
       param4: [null, null, null, 30, null, null, null, null, null, null],
     };
-
-    $("#step1").empty();
-    $(".step2-inputs:gt(" + (params.length - 1).toString() + ")").remove();
-    setTableValues(variantsValues);
     var typeOrder = variantsValues.type[userVariant - 1].toString();
     var order = ["1", "7", typeOrder];
     var areasInImg = ["6", "13", "24"];
     var changeImageOrder = ["1", "7", typeOrder];
-    $(".part:gt(5)").hide();
+
+    setTableValues(variantsValues);
     area_click(order, changeImageOrder, areasInImg);
 
     VStep2 = new Validator();
@@ -45,15 +46,20 @@ var trainer1_step2 = function () {
       }
       VStep2.addValidator($(input), param);
     }
-    VStep2.setStrictMode(true).setIgnoreCase(false).enableStepFinishAlert(true);
-    VStep2.addAreaSteps(order, order.length);
+    VStep2.setStrictMode(true)
+      .setIgnoreCase(false)
+      .enableStepFinishAlert(true)
+      .addAreaSteps(order, order.length);
 
     $("button.check").click(function () {
       VStep2.setAttemptsOnCheckButton($(this));
       VStep2.validate();
       if (VStep2.getFulfilled() && VStep2.getAttempts() > 0) {
         $(".step2-inputs").css("visibility", "hidden");
-        $("#mainImg").attr("src", "img/step2/5-" + userVariant + ".png");
+        $("#mainImg").attr(
+          "src",
+          "img/trainer1-step2/5-" + userVariant + ".png"
+        );
       }
     });
   };
@@ -171,7 +177,7 @@ var trainer1_step2 = function () {
         currentImageNumber + 1 >= 4
           ? ++currentImageNumber + "-" + userVariant
           : ++currentImageNumber;
-      $("#mainImg").attr("src", "img/step2/" + img + ".png");
+      $("#mainImg").attr("src", "img/trainer1-step2/" + img + ".png");
       changeImageOrder.shift();
     }
   }
