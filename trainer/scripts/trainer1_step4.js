@@ -6,6 +6,10 @@ const step4Template = "step4-input-";
 
 var trainer1_step4 = function () {
   this.postDispatch = function () {
+    $("#step3").empty();
+    $(".step4-inputs:gt(" + (params.length - 1).toString() + ")").remove();
+    $(".part:gt(5)").hide();
+
     var variantsValues = {
       type: [37, 31, 38, 32, 39, 33, 40, 34, 41, 42],
       param1: [20, 50, 30, 25, 15, 30, 60, 3, 65, 45],
@@ -16,15 +20,12 @@ var trainer1_step4 = function () {
       param6: [null, null, null, null, null, null, null, null, 10, null],
       param7: [null, null, null, null, null, null, null, null, 25, null],
     };
-
-    $("#step3").empty();
-    $(".step4-inputs:gt(" + (params.length - 1).toString() + ")").remove();
-    setTableValues(variantsValues);
     var typeOrder = variantsValues.type[userVariant - 1].toString();
     var order = ["1", "7", "14", "15", typeOrder];
     var areasInImg = ["6", "13", "14", "28"];
     var changeImageOrder = ["1", "7", "14", "15", typeOrder];
-    $(".part:gt(5)").hide();
+
+    setTableValues(variantsValues);
     area_click(order, changeImageOrder, areasInImg);
 
     VStep4 = new Validator();
@@ -57,15 +58,20 @@ var trainer1_step4 = function () {
       }
       VStep4.addValidator($(input), param);
     }
-    VStep4.setStrictMode(true).setIgnoreCase(false).enableStepFinishAlert(true);
-    VStep4.addAreaSteps(order, order.length);
+    VStep4.setStrictMode(true)
+      .setIgnoreCase(false)
+      .enableStepFinishAlert(true)
+      .addAreaSteps(order, order.length);
 
     $("button.check").click(function () {
       VStep4.setAttemptsOnCheckButton($(this));
       VStep4.validate();
       if (VStep4.getFulfilled() && VStep4.getAttempts() > 0) {
         $(".step4-inputs").css("visibility", "hidden");
-        $("#mainImg").attr("src", "img/step4/7-" + userVariant + ".png");
+        $("#mainImg").attr(
+          "src",
+          "img/trainer1-step4/7-" + userVariant + ".png"
+        );
       }
     });
   };
@@ -88,32 +94,26 @@ var trainer1_step4 = function () {
         .placeholder("")
         .autocomplete("off")
         .render(),
-
       STEP4_INPUT2: new TextInput(step4Template + params[1].toLowerCase())
         .placeholder("")
         .autocomplete("off")
         .render(),
-
       STEP4_INPUT3: new TextInput(step4Template + params[2]?.toLowerCase())
         .placeholder("")
         .autocomplete("off")
         .render(),
-
       STEP4_INPUT4: new TextInput(step4Template + params[3]?.toLowerCase())
         .placeholder("")
         .autocomplete("off")
         .render(),
-
       STEP4_INPUT5: new TextInput(step4Template + params[4]?.toLowerCase())
         .placeholder("")
         .autocomplete("off")
         .render(),
-
       STEP4_INPUT6: new TextInput(step4Template + params[5]?.toLowerCase())
         .placeholder("")
         .autocomplete("off")
         .render(),
-
       STEP4_INPUT7: new TextInput(step4Template + params[6]?.toLowerCase())
         .placeholder("")
         .autocomplete("off")
@@ -229,7 +229,7 @@ var trainer1_step4 = function () {
         currentImageNumber >= 5
           ? ++currentImageNumber + "-" + userVariant
           : ++currentImageNumber;
-      $("#mainImg").attr("src", "img/step4/" + imgId + ".png");
+      $("#mainImg").attr("src", "img/trainer1-step4/" + imgId + ".png");
       changeImageOrder.shift();
     }
   }
