@@ -143,8 +143,6 @@ var trainer1_step4 = function () {
         return "C_EXT";
       case "10":
         return "PRISM";
-      default:
-        return "UNKNOWN";
     }
   }
 
@@ -183,8 +181,6 @@ var trainer1_step4 = function () {
         ];
       case "PRISM":
         return ["SIDE1_LENGTH", "SIDE2_LENGTH", "SIDE3_LENGTH", "HEIGHT"];
-      default:
-        return [];
     }
   }
 

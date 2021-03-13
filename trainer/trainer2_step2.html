@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/trainer/css/steps.css" type="text/css"/>
+<div id="step2" class="jumbotron page1">
+	<h3>{{STEP2_TITLE}}</h3>
+	<p>{{STEP2_TASK}}</p>
+	<table class="table table-bordered text-center">
+		<thead>
+		  <tr>
+			<th scope="col" class="text-center">X</th>
+			<th scope="col" class="text-center">Y</th>
+			<th scope="col" class="text-center">Z</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<td id="x_value"></td>
+			<td id="y_value"></td>
+			<td id="z_value"></td>
+		  </tr>
+		</tbody>
+	  </table>
+	  <div class="map">
+		<svg id="svgmap" viewbox="0 0 1920 1030">
+			<a href="javascript:void(0)">
+				<path id="1" class="part" d="m 1224.4476,662.15208 87.4606,-58.53658 90.2152,43.73027 -6.198,82.29555 -79.1966,67.83357 -86.0832,-54.06026 z">
+			</a>
+			<foreignObject class="step2-inputs" x="953" y="976" width="82" height="160">
+				{{{STEP2_INPUT_X}}}
+			</foreignObject>
+			<foreignObject class="step2-inputs" x="1055" y="976" width="82" height="160">
+				{{{STEP2_INPUT_Y}}}
+			</foreignObject>
+			<foreignObject class="step2-inputs" x="1156" y="976" width="82" height="160">
+				{{{STEP2_INPUT_Z}}}
+			</foreignObject>
+		</svg>
+		<img id="mainImg" src="img/trainer2-step2/1.png" alt="">
+	</div>
+    <div id="chart" style="height: 20px;">{{{DIAG}}}</div>
+	<button class="btn btn-success pull-right check">{{CHECK}}</button>
+</div>

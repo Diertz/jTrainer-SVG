@@ -9,7 +9,6 @@ var introduction = function () {
       );
     });
     $("#endTrainer").addClass("disabled btn-default");
-    window.parent.document.title = window.document.title;
   };
 
   this.mustache = function () {
