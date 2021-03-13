@@ -1,5 +1,5 @@
 var userVariant;
-var introduction = function () {
+var trainer1_introduction = function () {
   this.preDispatch = function () {};
   this.postDispatch = function () {
     $("div.flag-icon").each(function () {
@@ -8,6 +8,7 @@ var introduction = function () {
         "window.location.href = '?lang=' + $(this).attr(\"id\")"
       );
     });
+    $("#endTrainer").addClass("disabled btn-default");
     window.parent.document.title = window.document.title;
   };
 

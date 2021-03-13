@@ -17,7 +17,7 @@ $(document).ready(function () {
       Logger.production();
     } else {
       $.ajaxSetup({ cache: false });
-      Logger.debugging();
+      Logger.silent();
     }
     Cogwheel.setText("Setting up step rotator");
     Rotator.setStepSpace($("section.stepspace"));

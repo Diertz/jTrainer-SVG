@@ -4,14 +4,14 @@ let figureName;
 let params;
 const step4Template = "step4-input-";
 
-var step4 = function () {
+var trainer1_step4 = function () {
   this.postDispatch = function () {
     var variantsValues = {
       type: [37, 31, 38, 32, 39, 33, 40, 34, 41, 42],
-      param1: [20, 50, 30, 25, 15, 30, 60, 35, 65, 45],
-      param2: [20, 50, 40, 50, 60, 50, 70, 40, -65, 60],
+      param1: [20, 50, 30, 25, 15, 30, 60, 3, 65, 45],
+      param2: [20, 50, 40, 50, 60, 50, 70, 35, -65, 60],
       param3: [1, 50, 5, 15, null, 15, 10, 5, 65, 60],
-      param4: [5, 5, null, null, null, null, 10, 3, 10, 35],
+      param4: [5, 5, null, null, null, null, 10, 40, 10, 35],
       param5: [null, null, null, null, null, null, 40, null, 10, null],
       param6: [null, null, null, null, null, null, null, null, 10, null],
       param7: [null, null, null, null, null, null, null, null, 25, null],
@@ -63,7 +63,7 @@ var step4 = function () {
     $("button.check").click(function () {
       VStep4.setAttemptsOnCheckButton($(this));
       VStep4.validate();
-      if (VStep4.getFulfilled()) {
+      if (VStep4.getFulfilled() && VStep4.getAttempts() > 0) {
         $(".step4-inputs").css("visibility", "hidden");
         $("#mainImg").attr("src", "img/step4/7-" + userVariant + ".png");
       }
@@ -170,7 +170,7 @@ var step4 = function () {
           "HEIGHT",
         ];
       case "GENGON":
-        return ["RADIUS", "HEIGHT", "FILLET", "SIDES"];
+        return ["SIDES", "RADIUS", "FILLET", "HEIGHT"];
       case "C_EXT":
         return [
           "BACK_LENGTH",

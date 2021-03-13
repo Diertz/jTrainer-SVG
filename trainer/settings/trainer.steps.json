@@ -1,6 +1,6 @@
 [
     {
-        "filename"      :   "introduction",
+        "filename"      :   "trainer1_introduction",
         "score"         :   0,
         "hasScript"     :   true
     },
@@ -10,22 +10,22 @@
         "hasScript"     :   true
     },
     {
-        "filename"      :   "step1",
+        "filename"      :   "trainer1_step1",
         "score"         :   25,
         "hasScript"     :   true
     },
     {
-        "filename"      :   "step2",
+        "filename"      :   "trainer1_step2",
         "score"         :   25,
         "hasScript"     :   true
     },
     {
-        "filename"      :   "step3",
+        "filename"      :   "trainer1_step3",
         "score"         :   25,
         "hasScript"     :   true
     },
     {
-        "filename"      :   "step4",
+        "filename"      :   "trainer1_step4",
         "score"         :   25,
         "hasScript"     :   true
     },

@@ -1,7 +1,7 @@
 var VStep1;
 var currentImageNumber = 1;
 
-var step1 = function () {
+var trainer1_step1 = function () {
   this.postDispatch = function () {
     var variantsValues = {
       length: [50, 20, 15, 13, 25, 10, 55, 20, 10, 15],
@@ -15,6 +15,7 @@ var step1 = function () {
     var order = ["1", "7", "14", "25", colorAreaId];
     var areasInImg = ["6", "13", "24", "25", "89"];
     var changeImageOrder = ["1", "7", "14", "25", colorAreaId];
+    $("#endTrainer").removeClass("disabled btn-default");
     $(".part:gt(5)").hide();
     $(".part:gt(24)").css("opacity", "0");
     area_click(order, changeImageOrder, areasInImg);
@@ -40,7 +41,7 @@ var step1 = function () {
     $("button.check").click(function () {
       VStep1.setAttemptsOnCheckButton($(this));
       VStep1.validate();
-      if (VStep1.getFulfilled()) {
+      if (VStep1.getFulfilled() && VStep1.getAttempts() > 0) {
         $(".step1-inputs").css("visibility", "hidden");
         $("#mainImg").attr("src", "img/step1/7-" + userVariant + ".png");
       }

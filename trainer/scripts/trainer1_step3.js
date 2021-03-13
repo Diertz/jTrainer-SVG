@@ -1,7 +1,7 @@
 var VStep3;
 var currentImageNumber = 1;
 
-var step3 = function () {
+var trainer1_step3 = function () {
   this.postDispatch = function () {
     $("#step2").empty();
     var order = ["1", "7", "14", "15", "30"];
@@ -25,7 +25,7 @@ var step3 = function () {
     $("button.check").click(function () {
       VStep3.setAttemptsOnCheckButton($(this));
       VStep3.validate();
-      if (VStep3.getFulfilled()) {
+      if (VStep3.getFulfilled() && VStep3.getAttempts() > 0) {
         $(".step3-inputs").css("visibility", "hidden");
         $("#mainImg").attr("src", "img/step3/7.png");
       }
