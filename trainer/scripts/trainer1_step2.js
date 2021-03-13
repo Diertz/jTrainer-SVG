@@ -4,13 +4,13 @@ let figureName;
 let params;
 const step2Template = "step2-input-";
 
-var step2 = function () {
+var trainer1_step2 = function () {
   this.postDispatch = function () {
     var variantsValues = {
       type: [20, 15, 16, 22, 17, 23, 18, 20, 15, 16],
-      param1: [40, 45, 30, 45, 40, 35, 25, 35, 30, 3],
-      param2: [0, 0, 30, 40, 15, 40, null, 30, 0.5, 30],
-      param3: [10, null, 50, 20, 20, 20, null, 30, null, 50],
+      param1: [40, 45, 30, 45, 40, 40, 25, 35, 30, 3],
+      param2: [0, 0, 30, 40, 15, 20, null, 30, 0.5, 30],
+      param3: [10, null, 50, 20, 20, 35, null, 30, null, 50],
       param4: [null, null, null, 30, null, null, null, null, null, null],
     };
 
@@ -51,7 +51,7 @@ var step2 = function () {
     $("button.check").click(function () {
       VStep2.setAttemptsOnCheckButton($(this));
       VStep2.validate();
-      if (VStep2.getFulfilled()) {
+      if (VStep2.getFulfilled() && VStep2.getAttempts() > 0) {
         $(".step2-inputs").css("visibility", "hidden");
         $("#mainImg").attr("src", "img/step2/5-" + userVariant + ".png");
       }
@@ -118,12 +118,13 @@ var step2 = function () {
       case "SPHERE":
         return ["RADIUS", "SEMICIRCLE"];
       case "TORUS":
+        return ["RADIUS1", "RADIUS2", "SIDES"];
       case "CYLINDER":
         return ["RADIUS", "HEIGHT", "SIDES"];
       case "TUBE":
         return ["RADIUS1", "RADIUS2", "HEIGHT", "SIDES"];
       case "PYRAMID":
-        return ["HEIGHT", "WIDTH", "DEPTH"];
+        return ["WIDTH", "DEPTH", "HEIGHT"];
       case "TEAPOT":
         return ["RADIUS"];
       default:
