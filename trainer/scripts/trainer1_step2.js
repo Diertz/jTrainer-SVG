@@ -112,8 +112,6 @@ var trainer1_step2 = function () {
         return "PYRAMID";
       case "7":
         return "TEAPOT";
-      default:
-        return "UNKNOWN";
     }
   }
 
@@ -133,8 +131,6 @@ var trainer1_step2 = function () {
         return ["WIDTH", "DEPTH", "HEIGHT"];
       case "TEAPOT":
         return ["RADIUS"];
-      default:
-        return [];
     }
   }
 

@@ -4,13 +4,13 @@ var currentImageNumber = 1;
 var trainer2_step1 = function () {
   this.postDispatch = function () {
     $("#endTrainer").removeClass("disabled btn-default");
-    VStep1 = new Validator();
+    $("button.check").css("display", "none");
     var variantsValues = [4, 3, 5, 9, 10, 2, 8, 6, 1, 7];
     var order = [variantsValues[userVariant - 1]];
     var changeImageOrder = [variantsValues[userVariant - 1]];
-    VStep1.setStrictMode(true).enableStepFinishAlert(true);
     area_click(order, changeImageOrder);
-    $("button.check").css("display", "none");
+    VStep1 = new Validator();
+    VStep1.setStrictMode(true).enableStepFinishAlert(true);
   };
 
   this.mustache = function () {
@@ -26,7 +26,7 @@ var trainer2_step1 = function () {
         updateImage(order, changeImageOrder);
         $(".part").hide();
         $("div.validation-alert-success").fadeIn();
-        Scorer.addScore(100);
+        Scorer.addScore(50);
         Rotator.enableNextButton();
       } else {
         $(this).css("fill", "red");
