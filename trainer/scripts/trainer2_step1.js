@@ -26,7 +26,7 @@ var trainer2_step1 = function () {
         updateImage(order, changeImageOrder);
         $(".part").hide();
         $("div.validation-alert-success").fadeIn();
-        Scorer.addScore(50);
+        Scorer.addScore(25);
         Rotator.enableNextButton();
       } else {
         $(this).css("fill", "red");

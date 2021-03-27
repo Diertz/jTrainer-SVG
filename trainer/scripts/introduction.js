@@ -5,7 +5,7 @@ var introduction = function () {
     $("div.flag-icon").each(function () {
       $(this).attr(
         "onclick",
-        "window.location.href = '?lang=' + $(this).attr(\"id\")"
+        "window.location.href = '?lang=trainer2_' + $(this).attr(\"id\")"
       );
     });
     $("#endTrainer").addClass("disabled btn-default");

@@ -1,4 +1,5 @@
 var VStep2;
+var currentImageNumber = 1;
 
 var trainer2_step2 = function () {
   this.postDispatch = function () {
@@ -8,6 +9,7 @@ var trainer2_step2 = function () {
       y: [25, 10, 40, -30, 20, -20, -10, 5, 25, -50],
       z: [-50, 10, 30, 10, 15, -10, -20, 10, 30, -10],
     };
+    var order = ["5", "10"];
     setTableValues(variantsValues, userVariant);
 
     VStep2 = new Validator();
@@ -26,10 +28,29 @@ var trainer2_step2 = function () {
     VStep2.setStrictMode(true).enableStepFinishAlert(true).addAreaSteps("1", 1);
 
     $(".part").click(function () {
-      $(this).css("fill", "green");
-      $("#mainImg").attr("src", "img/trainer2-step2/2.png");
-      $(".part").css("visibility", "hidden");
-      $(".step2-inputs").css("visibility", "visible");
+      var id = $(this).attr("id");
+      if (order[0] == id) {
+        order.shift();
+        $(this).css("fill", "green");
+        $("#mainImg").attr(
+          "src",
+          "img/trainer2-step2/" + ++currentImageNumber + ".png"
+        );
+        if (order.length == 0) {
+          $(".part").css("visibility", "hidden");
+          $(".step2-inputs").css("visibility", "visible");
+        }
+      } else {
+        $(this).css("fill", "red");
+        var attempts = VStep2.getAttempts() - 1;
+        if (attempts == 0) {
+          $(".part").hide();
+          $("div.validation-alert-danger").fadeIn();
+          Rotator.enableNextButton();
+        } else {
+          VStep2.setAttempts(attempts);
+        }
+      }
     });
 
     $("button.check").click(function () {
@@ -39,7 +60,7 @@ var trainer2_step2 = function () {
         $(".step2-inputs").css("visibility", "hidden");
         $("#mainImg").attr(
           "src",
-          "img/trainer2-step2/3-" + userVariant + ".png"
+          "img/trainer2-step2/4-" + userVariant + ".png"
         );
       }
     });
