@@ -72,7 +72,7 @@
         "STEP3_TASK": "Task: Create a group of objects. To complete the task, you must first select the objects by calling the Select by Name command on the Main Toolbar. In the opened window select objects to group and close the window. Then from the main menu select a command to group, agree with the proposed name and complete the command.",
 
         "STEP4_TITLE": "Step 4. Aligning",
-        "STEP4_TASK": "Task: Align the objects according to the option specified in the table. To complete the task, specify the correct item in the main menu, select the appropriate submenus and commands, specify the alignment object, then in the dialog box that opens, specify the alignment option and click the button to complete the command.",
+        "STEP4_TASK": "Task: Align the objects according to the option specified in the table. To complete the task, specify the correct item in the main menu, select the appropriate submenus and commands, specify the alignment target, then in the dialog box that opens, specify the alignment option and click the button to complete the command.",
         "STEP4_TABL_HEADER": "Aligning of the current object",
         "MINIMUM": "Minimum",
         "CENTER": "Center",
