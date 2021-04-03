@@ -3221,39 +3221,49 @@ var Validator = null;
       return checkState;
     };
 
-    /*
-                Validating svg area click
-            */
-    this.validateArea = function () {
-      this.validate();
-      if (attempts <= 0) {
-        $(".part").hide();
-      }
-    };
+    this.addSvgScore = function (order) {
+      areasOrder = order.slice();
+      areasCount = order.length;
+    }
+
+    this.addSvgStep = function (order, imgInfo, partsBorders, callback) {
+      this.addSvgScore(order);
+      $(".part").click(function () {
+        if (order[0] == $(this).attr("id")) {
+          $(this).css("fill", "green");
+          if (order[0] == imgInfo.order[0]) {
+            $("#mainImg").attr("src", imgInfo.path[0]);
+            imgInfo.order.shift();
+            imgInfo.path.shift();
+          }
+          if (partsBorders) {
+            $(".part").css("fill", "blue");
+            $(".part:gt(0)").hide();
+            $(".part:lt(" + partsBorders.max[0] + ")").show();
+            $(".part:lt(" + partsBorders.min[0] + ")").hide();
+            partsBorders.min.shift();
+            partsBorders.max.shift();
+          }
+          order.shift();
+          if (order.length == 0) {
+            $(".part").hide();
+            callback();
+          }
+        } else {
+          $(this).css("fill", "red");
+          attempts--;
+          if (attempts == 0) {
+            $(".part").hide();
+            $("div.validation-alert-danger").fadeIn();
+            Rotator.enableNextButton();
+          }
+        }
+      });
+    }
 
     /*
-                Validating next button click in svg step
-            */
-    this.validateSvgStep = function (listLength) {
-      if (listLength == 0) {
-        _Rotator.enableNextButton();
-        $("div.validation-alert-success").fadeIn();
-      } else {
-        $("div.validation-alert-danger").fadeIn();
-      }
-    };
-
-    /*
-                Areas results calculation
-            */
-    this.addAreaSteps = function (order, count) {
-      areasOrder = order;
-      areasCount = count;
-    };
-
-    /*
-                Calculating score on step, where "Finish trainer" button clicked
-            */
+      Calculating score on step, where "Finish trainer" button clicked
+    */
     this.setScoreOnPushResults = function () {
       fulfilled = false;
       LOGGER.debug("CHECKING VALIDATOR:", targets);
