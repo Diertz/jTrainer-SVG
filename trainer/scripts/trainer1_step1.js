@@ -1,52 +1,43 @@
 var VStep1;
-var currentImageNumber = 1;
+const imgPath = "img/trainer1-step1/";
 
 var trainer1_step1 = function () {
   this.postDispatch = function () {
     $("#endTrainer").removeClass("disabled btn-default");
     $(".part:gt(5)").hide();
     $(".part:gt(24)").css("opacity", "0");
-
-    var variantsValues = {
+    var options = {
       length: [50, 20, 15, 13, 25, 10, 55, 20, 10, 15],
       width: [30, 80, 23, 24, 35, 10, 44, 30, 15, 45],
       height: [25, 10, 60, 10, 45, 10, 62, 20, 90, 50],
       color: [75, 76, 77, 79, 80, 81, 82, 85, 86, 88],
     };
-    var colorAreaId = variantsValues.color[userVariant - 1];
-    var order = ["1", "7", "14", "25", colorAreaId];
-    var areasInImg = ["6", "13", "24", "25", "89"];
-    var changeImageOrder = ["1", "7", "14", "25", colorAreaId];
-
-    setTableValues(variantsValues, userVariant);
-    area_click(order, changeImageOrder, areasInImg);
-
+    var colorAreaId = options.color[userVariant - 1];
+    var order = [1, 7, 14, 25, colorAreaId];
+    var imgInfo = {
+      path: [imgPath + "2.png", imgPath + "3.png", imgPath + "4.png", imgPath + "5.png", imgPath + "6-" + userVariant + ".png"],
+      order: order.slice(),
+    };
+    var partIdsBorders = {
+      min: [6, 13, 24, 25],
+      max: [13, 24, 25, 89],
+    };
+    setTableValues(options);
     VStep1 = new Validator();
-    VStep1.addValidator(
-      $('input[name="step1-input-length"]'),
-      variantsValues.length[userVariant - 1]
-    )
-      .addValidator(
-        $('input[name="step1-input-width"]'),
-        variantsValues.width[userVariant - 1]
-      )
-      .addValidator(
-        $('input[name="step1-input-height"]'),
-        variantsValues.height[userVariant - 1]
-      )
-      .setStrictMode(true)
-      .enableStepFinishAlert(true)
-      .addAreaSteps(order, order.length);
-
+    VStep1.addValidator($('input[name="step1-input-length"]'), options.length[userVariant - 1]);
+    VStep1.addValidator($('input[name="step1-input-width"]'), options.width[userVariant - 1]);
+    VStep1.addValidator($('input[name="step1-input-height"]'), options.height[userVariant - 1]);
+    VStep1.addSvgStep(order, imgInfo, partIdsBorders, () => {
+      $(".step1-inputs").css("visibility", "visible");
+    });
+    VStep1.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false);
     $("button.check").click(function () {
       VStep1.setAttemptsOnCheckButton($(this));
       VStep1.validate();
       if (VStep1.getFulfilled() && VStep1.getAttempts() > 0) {
         $(".step1-inputs").css("visibility", "hidden");
-        $("#mainImg").attr(
-          "src",
-          "img/trainer1-step1/7-" + userVariant + ".png"
-        );
+        $("#mainImg").attr("src", "img/trainer1-step1/7-" + userVariant + ".png");
+        $("button.check").off("click");
       }
     });
   };
@@ -68,44 +59,11 @@ var trainer1_step1 = function () {
     };
   };
 
-  function setTableValues(values, variant) {
-    $("#boxlength").html(values.length[variant - 1]);
-    $("#boxwidth").html(values.width[variant - 1]);
-    $("#boxheight").html(values.height[variant - 1]);
-    $("#boxcolor").attr("src", "img/trainer1-step1/colors/" + variant + ".png");
-    $("#variant").text($("#variant").text() + variant);
-  }
-
-  function area_click(order, changeImageOrder, areasInImg) {
-    $(".part").click(function () {
-      if (order[0] == $(this).attr("id")) {
-        $(this).css("fill", "green");
-        updateImage(order, changeImageOrder);
-        updateAreas(areasInImg);
-        order.shift();
-      } else {
-        $(this).css("fill", "red");
-        VStep1.validateArea();
-      }
-    });
-  }
-
-  function updateImage(order, changeImageOrder) {
-    if (changeImageOrder[0] == order[0]) {
-      var img =
-        currentImageNumber + 1 >= 6
-          ? ++currentImageNumber + "-" + userVariant
-          : ++currentImageNumber;
-      $("#mainImg").attr("src", "img/trainer1-step1/" + img + ".png");
-      changeImageOrder.shift();
-    }
-  }
-
-  function updateAreas(areasInImg) {
-    areasInImg.shift();
-    $(".part:lt(" + areasInImg[0] + ")").show();
-    if (areasInImg.length == 0) {
-      $(".step1-inputs").css("visibility", "visible");
-    }
+  function setTableValues(values) {
+    $("#boxlength").html(values.length[userVariant - 1]);
+    $("#boxwidth").html(values.width[userVariant - 1]);
+    $("#boxheight").html(values.height[userVariant - 1]);
+    $("#boxcolor").attr("src", "img/trainer1-step1/colors/" + userVariant + ".png");
+    $("#variant").text($("#variant").text() + userVariant);
   }
 };

@@ -1,16 +1,17 @@
 var VStep4;
-var currentImageNumber = 1;
+const imgPath = "img/trainer1-step4/";
 let figureName;
 let params;
 const step4Template = "step4-input-";
 
 var trainer1_step4 = function () {
-  this.postDispatch = function () {
+  this.preDispatch = function () {
     $("#step3").empty();
+  };
+  this.postDispatch = function () {
     $(".step4-inputs:gt(" + (params.length - 1).toString() + ")").remove();
     $(".part:gt(5)").hide();
-
-    var variantsValues = {
+    var options = {
       type: [37, 31, 38, 32, 39, 33, 40, 34, 41, 42],
       param1: [20, 50, 30, 25, 15, 30, 60, 3, 65, 45],
       param2: [20, 50, 40, 50, 60, 50, 70, 35, -65, 60],
@@ -20,14 +21,17 @@ var trainer1_step4 = function () {
       param6: [null, null, null, null, null, null, null, null, 10, null],
       param7: [null, null, null, null, null, null, null, null, 25, null],
     };
-    var typeOrder = variantsValues.type[userVariant - 1].toString();
-    var order = ["1", "7", "14", "15", typeOrder];
-    var areasInImg = ["6", "13", "14", "28"];
-    var changeImageOrder = ["1", "7", "14", "15", typeOrder];
-
-    setTableValues(variantsValues);
-    area_click(order, changeImageOrder, areasInImg);
-
+    var typeOrder = options.type[userVariant - 1];
+    var order = [1, 7, 14, 15, typeOrder];
+    var imgInfo = {
+      path: [imgPath + "2.png", imgPath + "3.png", imgPath + "4.png", imgPath + "5.png", imgPath + "6-" + userVariant + ".png"],
+      order: order.slice(),
+    };
+    var partIdsBorders = {
+      min: [6, 13, 14, 29],
+      max: [13, 14, 29, 42],
+    };
+    setTableValues(options);
     VStep4 = new Validator();
     for (var i = 0; i < params.length; i++) {
       var inputName = step4Template + params[i].toLowerCase();
@@ -35,43 +39,40 @@ var trainer1_step4 = function () {
       var param = null;
       switch (i) {
         case 0:
-          param = variantsValues.param1[userVariant - 1];
+          param = options.param1[userVariant - 1];
           break;
         case 1:
-          param = variantsValues.param2[userVariant - 1];
+          param = options.param2[userVariant - 1];
           break;
         case 2:
-          param = variantsValues.param3[userVariant - 1];
+          param = options.param3[userVariant - 1];
           break;
         case 3:
-          param = variantsValues.param4[userVariant - 1];
+          param = options.param4[userVariant - 1];
           break;
         case 4:
-          param = variantsValues.param5[userVariant - 1];
+          param = options.param5[userVariant - 1];
           break;
         case 5:
-          param = variantsValues.param6[userVariant - 1];
+          param = options.param6[userVariant - 1];
           break;
         case 6:
-          param = variantsValues.param7[userVariant - 1];
+          param = options.param7[userVariant - 1];
           break;
       }
       VStep4.addValidator($(input), param);
     }
-    VStep4.setStrictMode(true)
-      .setIgnoreCase(false)
-      .enableStepFinishAlert(true)
-      .addAreaSteps(order, order.length);
-
+    VStep4.addSvgStep(order, imgInfo, partIdsBorders, () => {
+      $(".step4-inputs").css("visibility", "visible");
+    });
+    VStep4.setStrictMode(true).setIgnoreCase(false).enableStepFinishAlert(true);
     $("button.check").click(function () {
       VStep4.setAttemptsOnCheckButton($(this));
       VStep4.validate();
       if (VStep4.getFulfilled() && VStep4.getAttempts() > 0) {
         $(".step4-inputs").css("visibility", "hidden");
-        $("#mainImg").attr(
-          "src",
-          "img/trainer1-step4/7-" + userVariant + ".png"
-        );
+        $("#mainImg").attr("src", "img/trainer1-step4/7-" + userVariant + ".png");
+        $("button.check").off("click");
       }
     });
   };
@@ -89,7 +90,6 @@ var trainer1_step4 = function () {
       STEP4_TABL_HEADER6: I18N.getConstants()[params[4]],
       STEP4_TABL_HEADER7: I18N.getConstants()[params[5]],
       STEP4_TABL_HEADER8: I18N.getConstants()[params[6]],
-
       STEP4_INPUT1: new TextInput(step4Template + params[0].toLowerCase())
         .placeholder("")
         .autocomplete("off")
@@ -187,13 +187,7 @@ var trainer1_step4 = function () {
   function setTableValues(values) {
     const maxTableSize = 8;
     for (var i = maxTableSize; i > params.length + 1; i--) {
-      $(
-        "#valuesTable th:nth-child(" +
-          i +
-          "),#valuesTable td:nth-child(" +
-          i +
-          ")"
-      ).remove();
+      $("#valuesTable th:nth-child(" + i + "),#valuesTable td:nth-child(" + i + ")").remove();
     }
     $("#variant").text($("#variant").text() + userVariant);
     $("#param1").html(values.param1[userVariant - 1]);
@@ -203,46 +197,5 @@ var trainer1_step4 = function () {
     $("#param5").html(values.param5[userVariant - 1]);
     $("#param6").html(values.param6[userVariant - 1]);
     $("#param7").html(values.param7[userVariant - 1]);
-  }
-
-  function area_click(order, changeImageOrder, areasInImg) {
-    $(".part").click(function () {
-      if (order[0] == $(this).attr("id")) {
-        $(this).css("fill", "green");
-        updateImage(order, changeImageOrder);
-        updateAreas(areasInImg);
-        order.shift();
-      } else {
-        $(this).css("fill", "red");
-        VStep4.validateArea();
-      }
-    });
-  }
-
-  function updateImage(order, changeImageOrder) {
-    if (changeImageOrder[0] == order[0]) {
-      let imgId =
-        currentImageNumber >= 5
-          ? ++currentImageNumber + "-" + userVariant
-          : ++currentImageNumber;
-      $("#mainImg").attr("src", "img/trainer1-step4/" + imgId + ".png");
-      changeImageOrder.shift();
-    }
-  }
-
-  function updateAreas(areasInImg) {
-    var temp = areasInImg[0];
-    areasInImg.shift();
-    $(".part:lt(" + areasInImg[0] + ")").show();
-    if (areasInImg[0]) {
-      $(".part:lt(" + temp + ")").hide();
-    } else {
-      $(".part:lt(" + temp + ")").hide();
-      $(".part:gt(" + temp + ")").show();
-    }
-    if (areasInImg.length == 0 && !temp) {
-      $(".part:gt(0)").hide();
-      $(".step4-inputs").css("visibility", "visible");
-    }
   }
 };
