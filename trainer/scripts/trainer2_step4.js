@@ -18,7 +18,7 @@ var trainer2_step4 = function () {
       max: ["39", "47", "49", "53", "53"],
     };
     VStep4 = new Validator();
-    VStep3.setStrictMode(true).enableStepFinishAlert(true).addSvgScore(order).setIgnoreCase(false);
+    VStep4.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false).addSvgScore(order);
     area_click(order, partIdsBorders);
   };
 
