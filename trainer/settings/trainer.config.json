@@ -1,10 +1,10 @@
 {
     "LANGUAGES": {
-		"trainer2_ua": "Українська",
-        "trainer2_ru": "Русский",
-        "trainer2_en": "English"
+		"trainer1_ua": "Українська",
+        "trainer1_ru": "Русский",
+        "trainer1_en": "English"
     },
-    "DEFAULT_LANG": "trainer2_ua",
+    "DEFAULT_LANG": "trainer1_ua",
     "TRAINER_SCORE": 100,
     "TRAINER_AUTHOR": "Vadim Isaev",
     "COURSE_AUTHOR": "Vadim Isaev",

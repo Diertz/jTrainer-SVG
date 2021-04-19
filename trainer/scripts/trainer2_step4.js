@@ -2,30 +2,14 @@ var VStep4;
 var currentImageNumber = 1;
 
 var trainer2_step4 = function () {
-  this.postDispatch = function () {
+  this.preDispatch = function () {
     $("#step3").empty();
+  };
+  this.postDispatch = function () {
     $("button.check").css("display", "none");
     $(".part:gt(13)").hide();
-    var variantsValues = [
-      "50",
-      "51",
-      "",
-      "52",
-      "50",
-      "51",
-      "",
-      "52",
-      "50",
-      "51",
-    ];
-    var order = [
-      "2",
-      "28",
-      "40",
-      "48|49",
-      variantsValues[userVariant - 1],
-      "53",
-    ];
+    var variantsValues = ["50", "51", "", "52", "50", "51", "", "52", "50", "51"];
+    var order = ["2", "28", "40", "48|49", variantsValues[userVariant - 1], "53"];
     if (variantsValues[userVariant - 1] == "") {
       order.splice(4, 1);
     }
@@ -33,8 +17,9 @@ var trainer2_step4 = function () {
       min: ["14", "39", "47", "49", "52"],
       max: ["39", "47", "49", "53", "53"],
     };
-    area_click(order, partIdsBorders);
     VStep4 = new Validator();
+    VStep4.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false).addSvgScore(order);
+    area_click(order, partIdsBorders);
   };
 
   this.mustache = function () {
