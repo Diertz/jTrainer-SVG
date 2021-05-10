@@ -1,51 +1,63 @@
-<link rel="stylesheet" href="/trainer/css/steps.css" type="text/css"/>
+<link rel="stylesheet" href="/trainer/css/steps.css" type="text/css" />
+<script src="/trainer/scripts/helpers.js"></script>
 <div id="step2" class="jumbotron page1">
-	<h3>{{STEP2_TITLE}}</h3>
-	<p>{{STEP2_TASK}}</p>
-	<table class="table table-bordered text-center">
-		<thead>
-		  <tr>
-			<th scope="col" class="text-center">X</th>
-			<th scope="col" class="text-center">Y</th>
-			<th scope="col" class="text-center">Z</th>
-		  </tr>
-		</thead>
-		<tbody>
-		  <tr>
-			<td id="x_value"></td>
-			<td id="y_value"></td>
-			<td id="z_value"></td>
-		  </tr>
-		</tbody>
-	  </table>
-	  <div class="map">
+	<div style="margin-left: 5px">
+		<h3>{{STEP2_TITLE}}</h3>
+		<p>{{STEP2_TASK}}</p>
+		<table class="table table-bordered text-center">
+			<thead>
+				<tr>
+					<th scope="col" class="text-center">X</th>
+					<th scope="col" class="text-center">Y</th>
+					<th scope="col" class="text-center">Z</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="x_value"></td>
+					<td id="y_value"></td>
+					<td id="z_value"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="map">
 		<svg id="svgmap" viewbox="0 0 1920 1030">
 			<a href="javascript:void(0)">
-				<path id="1" class="part" d="m 310.90821,63.38177 -0.18752,31.315846 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128326 -2.62528,-3.18784 -33.37857,0.18752 z">
+				<path id="1" class="part"
+					d="m 310.90821,63.38177 -0.18752,31.315846 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128326 -2.62528,-3.18784 -33.37857,0.18752 z">
 			</a>
 			<a href="javascript:void(0)">
-				<path id="2" class="part" d="m 349.72486,63.94433 -0.18752,31.315845 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128325 -2.62528,-3.18784 -33.37857,0.18752 z">
+				<path id="2" class="part"
+					d="m 349.72486,63.94433 -0.18752,31.315845 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128325 -2.62528,-3.18784 -33.37857,0.18752 z">
 			</a>
 			<a href="javascript:void(0)">
-				<path id="3" class="part" d="m 391.54183,63.75681 -0.18752,31.315845 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128325 -2.62528,-3.18784 -33.37857,0.18752 z">
+				<path id="3" class="part"
+					d="m 391.54183,63.75681 -0.18752,31.315845 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128325 -2.62528,-3.18784 -33.37857,0.18752 z">
 			</a>
 			<a href="javascript:void(0)">
-				<path id="4" class="part" d="m 430.35848,64.31937 -0.18752,31.315844 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128324 -2.62528,-3.18784 -33.37857,0.18752 z">
+				<path id="4" class="part"
+					d="m 430.35848,64.31937 -0.18752,31.315844 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128324 -2.62528,-3.18784 -33.37857,0.18752 z">
 			</a>
 			<a href="javascript:void(0)">
-				<path id="5" class="part" d="m 476.86246,64.694426 -0.18752,31.315844 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128324 -2.62528,-3.18784 -33.37857,0.18752 z">
+				<path id="5" class="part"
+					d="m 476.86246,64.694426 -0.18752,31.315844 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128324 -2.62528,-3.18784 -33.37857,0.18752 z">
 			</a>
 			<a href="javascript:void(0)">
-				<path id="6" class="part" d="m 517.55431,64.131866 -0.18752,31.315843 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128323 -2.62528,-3.18784 -33.37857,0.18752 z">
+				<path id="6" class="part"
+					d="m 517.55431,64.131866 -0.18752,31.315843 2.8128,2.62528 33.56609,0.18752 2.06272,-2.43776 0.56256,-31.128323 -2.62528,-3.18784 -33.37857,0.18752 z">
 			</a>
 			<a href="javascript:void(0)">
-				<path id="7" class="part" d="m 558.80871,64.131867 -0.18752,31.31584 2.8128,2.62528 33.5661,0.18752 2.06272,-2.43776 0.56256,-31.12832 -2.62528,-3.18784 -33.37858,0.18752 z">
+				<path id="7" class="part"
+					d="m 558.80871,64.131867 -0.18752,31.31584 2.8128,2.62528 33.5661,0.18752 2.06272,-2.43776 0.56256,-31.12832 -2.62528,-3.18784 -33.37858,0.18752 z">
 			</a>
 			<a href="javascript:void(0)">
-				<path id="9" class="part" d="m 597.62537,64.694427 -0.18752,31.31584 2.8128,2.62528 33.5661,0.18752 2.06272,-2.43776 0.56256,-31.12832 -2.62528,-3.18784 -33.37858,0.18752 z">
+				<path id="9" class="part"
+					d="m 597.62537,64.694427 -0.18752,31.31584 2.8128,2.62528 33.5661,0.18752 2.06272,-2.43776 0.56256,-31.12832 -2.62528,-3.18784 -33.37858,0.18752 z">
 			</a>
 			<a href="javascript:void(0)">
-				<path id="10" class="part" d="m 1187.5359,660.33149 96,-62.32044 96,46.67403 -5.0387,87.51382 -86.1878,72.66298 -90.4309,-57.01657 z">
+				<path id="10" class="part"
+					d="m 1187.5359,660.33149 96,-62.32044 96,46.67403 -5.0387,87.51382 -86.1878,72.66298 -90.4309,-57.01657 z">
 			</a>
 			<foreignObject class="step2-inputs" x="953" y="976" width="82" height="160">
 				{{{STEP2_INPUT_X}}}
@@ -59,6 +71,6 @@
 		</svg>
 		<img id="mainImg" src="img/trainer2-step2/1.png" alt="">
 	</div>
-    <div id="chart" style="height: 20px;">{{{DIAG}}}</div>
-	<button class="btn btn-success pull-right check">{{CHECK}}</button>
+	<div id="chart" style="height: 20px;">{{{DIAG}}}</div>
+	<button style="margin-right: 75px;" class="btn btn-success pull-right check">{{CHECK}}</button>
 </div>

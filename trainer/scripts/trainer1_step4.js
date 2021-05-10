@@ -9,6 +9,7 @@ var trainer1_step4 = function () {
     $("#step3").empty();
   };
   this.postDispatch = function () {
+    $(":input").attr("autocomplete", "off");
     $(".step4-inputs:gt(" + (params.length - 1).toString() + ")").remove();
     $(".part:gt(5)").hide();
     var options = {
@@ -62,14 +63,15 @@ var trainer1_step4 = function () {
       }
       VStep4.addValidator($(input), param);
     }
-    VStep4.addSvgStep(order, imgInfo, partIdsBorders, () => {
+    VStep4.setStrictMode(true).setIgnoreCase(false).enableStepFinishAlert(true);
+    addSvgStep(order, imgInfo, partIdsBorders, VStep4, () => {
       $(".step4-inputs").css("visibility", "visible");
     });
-    VStep4.setStrictMode(true).setIgnoreCase(false).enableStepFinishAlert(true);
     $("button.check").click(function () {
+      const saveAttempts = VStep4.getAttempts();
       VStep4.setAttemptsOnCheckButton($(this));
       VStep4.validate();
-      if (VStep4.getFulfilled() && VStep4.getAttempts() > 0) {
+      if (saveAttempts == VStep4.getAttempts() && VStep4.getAttempts() > 0) {
         $(".step4-inputs").css("visibility", "hidden");
         $("#mainImg").attr("src", "img/trainer1-step4/7-" + userVariant + ".png");
         $("button.check").off("click");
@@ -92,31 +94,24 @@ var trainer1_step4 = function () {
       STEP4_TABL_HEADER8: I18N.getConstants()[params[6]],
       STEP4_INPUT1: new TextInput(step4Template + params[0].toLowerCase())
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP4_INPUT2: new TextInput(step4Template + params[1].toLowerCase())
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP4_INPUT3: new TextInput(step4Template + params[2]?.toLowerCase())
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP4_INPUT4: new TextInput(step4Template + params[3]?.toLowerCase())
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP4_INPUT5: new TextInput(step4Template + params[4]?.toLowerCase())
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP4_INPUT6: new TextInput(step4Template + params[5]?.toLowerCase())
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP4_INPUT7: new TextInput(step4Template + params[6]?.toLowerCase())
         .placeholder("")
-        .autocomplete("off")
         .render(),
     };
   };

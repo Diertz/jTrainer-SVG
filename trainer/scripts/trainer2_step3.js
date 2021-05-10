@@ -18,12 +18,12 @@ var trainer2_step3 = function () {
       max: [19, 19, 19, 19, 15, 21, 22],
     };
     VStep3 = new Validator();
-    VStep3.addSvgStep(order, imgInfo, partIdsBorders, () => {
+    VStep3.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false);
+    addSvgStep(order, imgInfo, partIdsBorders, VStep3, () => {
       $("div.validation-alert-success").fadeIn();
       Scorer.addScore(25);
       Rotator.enableNextButton();
     });
-    VStep3.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false);
   };
 
   this.mustache = function () {
