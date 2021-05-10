@@ -1,30 +1,33 @@
-<link rel="stylesheet" href="/trainer/css/steps.css" type="text/css"/>
+<link rel="stylesheet" href="/trainer/css/steps.css" type="text/css" />
+<script src="/trainer/scripts/helpers.js"></script>
 <div id="step3" class="jumbotron page1">
-	<h3>{{STEP3_TITLE}}</h3>
-	<p>{{STEP3_TASK}}</p>
-	<table id="valuesTable" class="table table-bordered text-center">
-		<thead>
-		  <tr>
-			<th scope="col" class="text-center">Family Parameter P</th>
-			<th scope="col" class="text-center">Family Parameter Q</th>
-			<th scope="col" class="text-center">Axis Scaling P</th>
-			<th scope="col" class="text-center">Axis Scaling Q</th>
-			<th scope="col" class="text-center">Axis Scaling R</th>
-			<th scope="col" class="text-center">Radius</th>
-		  </tr>
-		</thead>
-		<tbody>
-		  <tr>
-			<td>0.5</td>
-			<td>0.5</td>
-			<td>20</td>
-			<td>20</td>
-			<td>20</td>
-			<td>35</td>
-		  </tr>
-		</tbody>
-	  </table>
-	  <div class="map">
+	<div style="margin-left: 5px">
+		<h3>{{STEP3_TITLE}}</h3>
+		<p>{{STEP3_TASK}}</p>
+		<table id="valuesTable" class="table table-bordered text-center">
+			<thead>
+				<tr>
+					<th scope="col" class="text-center">Family Parameter P</th>
+					<th scope="col" class="text-center">Family Parameter Q</th>
+					<th scope="col" class="text-center">Axis Scaling P</th>
+					<th scope="col" class="text-center">Axis Scaling Q</th>
+					<th scope="col" class="text-center">Axis Scaling R</th>
+					<th scope="col" class="text-center">Radius</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0.5</td>
+					<td>0.5</td>
+					<td>20</td>
+					<td>20</td>
+					<td>20</td>
+					<td>35</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="map">
 		<svg id="svgmap" viewbox="0 0 1920 1030">
 			<a href="javascript:void(0)">
 				<title>Create</title>
@@ -64,19 +67,23 @@
 			</a>
 			<a href="javascript:void(0)">
 				<title>Cameras</title>
-				<path id="10" class="part" d="m 1766.6078,191.00461 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
+				<path id="10" class="part"
+					d="m 1766.6078,191.00461 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Helpers</title>
-				<path id="11" class="part" d="m 1796.6404,190.94684 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
+				<path id="11" class="part"
+					d="m 1796.6404,190.94684 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Space Warps</title>
-				<path id="12" class="part" d="m 1826.8724,190.88055 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
+				<path id="12" class="part"
+					d="m 1826.8724,190.88055 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Systems</title>
-				<path id="13" class="part" d="m 1856.3752,191.01314 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
+				<path id="13" class="part"
+					d="m 1856.3752,191.01314 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
 			</a>
 
 			<a href="javascript:void(0)">
@@ -85,63 +92,78 @@
 			</a>
 			<a href="javascript:void(0)">
 				<title>Extended Primitives</title>
-				<path id="15" class="part" d="m 1675.3062,273.85383 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="15" class="part"
+					d="m 1675.3062,273.85383 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Compound Objects</title>
-				<path id="16" class="part" d="m 1675.2942,295.97484 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="16" class="part"
+					d="m 1675.2942,295.97484 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Particle Systems</title>
-				<path id="17" class="part" d="m 1675.2822,318.09585 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="17" class="part"
+					d="m 1675.2822,318.09585 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Patch Grids</title>
-				<path id="18" class="part" d="m 1675.2702,340.21686 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="18" class="part"
+					d="m 1675.2702,340.21686 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Body Objects</title>
-				<path id="19" class="part" d="m 1675.2582,362.33787 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="19" class="part"
+					d="m 1675.2582,362.33787 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Doors</title>
-				<path id="20" class="part" d="m 1675.2462,384.45888 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="20" class="part"
+					d="m 1675.2462,384.45888 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>NURBS Surfaces</title>
-				<path id="21" class="part" d="m 1675.2342,406.57989 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="21" class="part"
+					d="m 1675.2342,406.57989 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Windows</title>
-				<path id="22" class="part" d="m 1675.2222,428.7009 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="22" class="part"
+					d="m 1675.2222,428.7009 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>AEC Extended</title>
-				<path id="23" class="part" d="m 1675.2102,450.82191 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="23" class="part"
+					d="m 1675.2102,450.82191 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Point Cloud Objects</title>
-				<path id="24" class="part" d="m 1675.1982,472.94292 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="24" class="part"
+					d="m 1675.1982,472.94292 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Dynamics Objects</title>
-				<path id="25" class="part" d="m 1675.1862,495.06393 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="25" class="part"
+					d="m 1675.1862,495.06393 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Stairs</title>
-				<path id="26" class="part" d="m 1675.1742,517.18494 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="26" class="part"
+					d="m 1675.1742,517.18494 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Alembic</title>
-				<path id="27" class="part" d="m 1675.1622,539.30595 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="27" class="part"
+					d="m 1675.1622,539.30595 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>CFD</title>
-				<path id="28" class="part" d="m 1675.1502,561.42696 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="28" class="part"
+					d="m 1675.1502,561.42696 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Max Creation Graph</title>
-				<path id="29" class="part" d="m 1675.1382,583.54797 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
+				<path id="29" class="part"
+					d="m 1675.1382,583.54797 241.0671,-0.2108 -0.012,22.12101 -241.2799,-0.0873 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Hedra</title>
@@ -216,6 +238,6 @@
 		</svg>
 		<img id="mainImg" src="img/trainer1-step3/1.png" alt="">
 	</div>
-    <div id="chart" style="height: 20px;">{{{DIAG}}}</div>
-	<button class="btn btn-success pull-right check">{{CHECK}}</button>
+	<div id="chart" style="height: 20px;">{{{DIAG}}}</div>
+	<button style="margin-right: 75px;" class="btn btn-success pull-right check">{{CHECK}}</button>
 </div>

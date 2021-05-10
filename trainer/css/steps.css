@@ -45,3 +45,8 @@ foreignObject {
   padding-left: 50px;
   padding-bottom: 110px;
 }
+
+.task-description {
+  margin: 5px !important;
+  padding: 5px;
+}

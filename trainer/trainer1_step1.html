@@ -1,25 +1,28 @@
 <link rel="stylesheet" href="/trainer/css/steps.css" type="text/css" />
+<script src="/trainer/scripts/helpers.js"></script>
 <div id="step1" class="jumbotron page1">
-	<h3>{{STEP1_TITLE}}</h3>
-	<p>{{STEP1_TASK}}</p>
-	<table class="table table-bordered text-center">
-		<thead>
-			<tr>
-				<th scope="col" class="text-center">{{STEP1_TABL_HEADER1}}</th>
-				<th scope="col" class="text-center">{{STEP1_TABL_HEADER2}}</th>
-				<th scope="col" class="text-center">{{STEP1_TABL_HEADER3}}</th>
-				<th scope="col" class="text-center">{{STEP1_TABL_HEADER4}}</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td id="boxlength"></td>
-				<td id="boxwidth"></td>
-				<td id="boxheight"></td>
-				<td><img id="boxcolor" alt=""></td>
-			</tr>
-		</tbody>
-	</table>
+	<div style="margin-left: 5px">
+		<h3>{{STEP1_TITLE}}</h3>
+		<p>{{STEP1_TASK}}</p>
+		<table class="table table-bordered text-center">
+			<thead>
+				<tr>
+					<th scope="col" class="text-center">{{STEP1_TABL_HEADER1}}</th>
+					<th scope="col" class="text-center">{{STEP1_TABL_HEADER2}}</th>
+					<th scope="col" class="text-center">{{STEP1_TABL_HEADER3}}</th>
+					<th scope="col" class="text-center">{{STEP1_TABL_HEADER4}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="boxlength"></td>
+					<td id="boxwidth"></td>
+					<td id="boxheight"></td>
+					<td><img id="boxcolor" alt=""></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<div class="map">
 		<svg id="svgmap" viewbox="0 0 1920 1030">
 			<a href="javascript:void(0)">
@@ -358,5 +361,5 @@
 		<img id="mainImg" src="img/trainer1-step1/1.png" alt="">
 	</div>
 	<div id="chart" style="height: 20px;">{{{DIAG}}}</div>
-	<button class="btn btn-success pull-right check">{{CHECK}}</button>
+	<button style="margin-right: 75px;" class="btn btn-success pull-right check">{{CHECK}}</button>
 </div>

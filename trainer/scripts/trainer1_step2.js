@@ -9,6 +9,7 @@ var trainer1_step2 = function () {
     $("#step1").empty();
   };
   this.postDispatch = function () {
+    $(":input").attr("autocomplete", "off");
     $(".step2-inputs:gt(" + (params.length - 1).toString() + ")").remove();
     $(".part:gt(5)").hide();
     var options = {
@@ -50,15 +51,16 @@ var trainer1_step2 = function () {
       }
       VStep2.addValidator($(input), param);
     }
-    VStep2.addSvgStep(order, imgInfo, partIdsBorders, () => {
+    VStep2.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false);
+    addSvgStep(order, imgInfo, partIdsBorders, VStep2, () => {
       $(".step2-inputs").css("visibility", "visible");
     });
-    VStep2.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false);
 
     $("button.check").click(function () {
+      const saveAttempts = VStep2.getAttempts();
       VStep2.setAttemptsOnCheckButton($(this));
       VStep2.validate();
-      if (VStep2.getFulfilled() && VStep2.getAttempts() > 0) {
+      if (saveAttempts == VStep2.getAttempts() && VStep2.getAttempts() > 0) {
         $(".step2-inputs").css("visibility", "hidden");
         $("#mainImg").attr("src", "img/trainer1-step2/5-" + userVariant + ".png");
         $("button.check").off("click");
@@ -77,19 +79,15 @@ var trainer1_step2 = function () {
       STEP2_TABL_HEADER5: I18N.getConstants()[params[3]],
       STEP2_INPUT1: new TextInput(step2Template + params[0].toLowerCase())
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP2_INPUT2: new TextInput(step2Template + params[1]?.toLowerCase())
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP2_INPUT3: new TextInput(step2Template + params[2]?.toLowerCase())
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP2_INPUT4: new TextInput(step2Template + params[3]?.toLowerCase())
         .placeholder("")
-        .autocomplete("off")
         .render(),
     };
   };

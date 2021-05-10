@@ -1,28 +1,31 @@
-<link rel="stylesheet" href="/trainer/css/steps.css" type="text/css"/>
+<link rel="stylesheet" href="/trainer/css/steps.css" type="text/css" />
+<script src="/trainer/scripts/helpers.js"></script>
 <div id="step2" class="jumbotron page1">
-	<h3>{{STEP2_TITLE}}</h3>
-	<p>{{STEP2_TASK}}</p>
-	<table id="valuesTable" class="table table-bordered text-center">
-		<thead>
-		  <tr>
-			<th scope="col" class="text-center">{{STEP2_TABL_HEADER1}}</th>
-			<th scope="col" class="text-center">{{STEP2_TABL_HEADER2}}</th>
-			<th scope="col" class="text-center">{{STEP2_TABL_HEADER3}}</th>
-			<th scope="col" class="text-center">{{STEP2_TABL_HEADER4}}</th>
-			<th scope="col" class="text-center">{{STEP2_TABL_HEADER5}}</th>
-		  </tr>
-		</thead>
-		<tbody>
-		  <tr>
-			<td id="figure">{{FIGURE_NAME}}</td>
-			<td id="param1"></td>
-			<td id="param2"></td>
-			<td id="param3"></td>
-			<td id="param4"></td>
-		  </tr>
-		</tbody>
-	  </table>
-	  <div class="map">
+	<div style="margin-left: 5px">
+		<h3>{{STEP2_TITLE}}</h3>
+		<p>{{STEP2_TASK}}</p>
+		<table id="valuesTable" class="table table-bordered text-center">
+			<thead>
+				<tr>
+					<th scope="col" class="text-center">{{STEP2_TABL_HEADER1}}</th>
+					<th scope="col" class="text-center">{{STEP2_TABL_HEADER2}}</th>
+					<th scope="col" class="text-center">{{STEP2_TABL_HEADER3}}</th>
+					<th scope="col" class="text-center">{{STEP2_TABL_HEADER4}}</th>
+					<th scope="col" class="text-center">{{STEP2_TABL_HEADER5}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="figure">{{FIGURE_NAME}}</td>
+					<td id="param1"></td>
+					<td id="param2"></td>
+					<td id="param3"></td>
+					<td id="param4"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="map">
 		<svg id="svgmap" viewbox="0 0 1920 1030">
 			<a href="javascript:void(0)">
 				<title>Create</title>
@@ -62,63 +65,78 @@
 			</a>
 			<a href="javascript:void(0)">
 				<title>Cameras</title>
-				<path id="10" class="part" d="m 1766.6078,191.00461 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
+				<path id="10" class="part"
+					d="m 1766.6078,191.00461 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Helpers</title>
-				<path id="11" class="part" d="m 1796.6404,190.94684 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
+				<path id="11" class="part"
+					d="m 1796.6404,190.94684 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Space Warps</title>
-				<path id="12" class="part" d="m 1826.8724,190.88055 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
+				<path id="12" class="part"
+					d="m 1826.8724,190.88055 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Systems</title>
-				<path id="13" class="part" d="m 1856.3752,191.01314 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
+				<path id="13" class="part"
+					d="m 1856.3752,191.01314 -0.148,28.42258 27.3012,0.13831 -0.2218,-28.63005 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Box</title>
-				<path id="14" class="part" d="m 1692.8371,305.09509 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
+				<path id="14" class="part"
+					d="m 1692.8371,305.09509 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Sphere</title>
-				<path id="15" class="part" d="m 1693.0715,331.06636 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
+				<path id="15" class="part"
+					d="m 1693.0715,331.06636 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Cylinder</title>
-				<path id="16" class="part" d="m 1692.7902,357.50667 -0.1875,21.37729 91.0409,0.18752 -0.1875,-21.47105 z">
+				<path id="16" class="part"
+					d="m 1692.7902,357.50667 -0.1875,21.37729 91.0409,0.18752 -0.1875,-21.47105 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Torus</title>
-				<path id="17" class="part" d="m 1693.0715,383.57195 -0.1875,21.37729 91.0409,0.18752 -0.1875,-21.47105 z">
+				<path id="17" class="part"
+					d="m 1693.0715,383.57195 -0.1875,21.37729 91.0409,0.18752 -0.1875,-21.47105 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Teapot</title>
-				<path id="18" class="part" d="m 1693.0715,409.35596 -0.1875,21.37729 91.0409,0.18752 -0.1875,-21.47105 z">
+				<path id="18" class="part"
+					d="m 1693.0715,409.35596 -0.1875,21.37729 91.0409,0.18752 -0.1875,-21.47105 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>TextPlus</title>
-				<path id="19" class="part" d="m 1693.259,435.32748 -0.1875,21.37729 91.0409,0.18752 -0.1875,-21.47105 z">
+				<path id="19" class="part"
+					d="m 1693.259,435.32748 -0.1875,21.37729 91.0409,0.18752 -0.1875,-21.47105 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Cone</title>
-				<path id="20" class="part" d="m 1797.1451,305.00107 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
+				<path id="20" class="part"
+					d="m 1797.1451,305.00107 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>GeoSphere</title>
-				<path id="21" class="part" d="m 1797.1451,331.25388 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
+				<path id="21" class="part"
+					d="m 1797.1451,331.25388 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Tube</title>
-				<path id="22" class="part" d="m 1796.8638,357.31915 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
+				<path id="22" class="part"
+					d="m 1796.8638,357.31915 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Pyramid</title>
-				<path id="23" class="part" d="m 1796.8638,383.38444 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
+				<path id="23" class="part"
+					d="m 1796.8638,383.38444 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
 			</a>
 			<a href="javascript:void(0)">
 				<title>Plane</title>
-				<path id="24" class="part" d="m 1796.5825,409.2622 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
+				<path id="24" class="part"
+					d="m 1796.5825,409.2622 -0.1875,21.37728 91.0409,0.18752 -0.1875,-21.47104 z">
 			</a>
 			<foreignObject style="visibility: hidden;" class="step2-inputs" x="1792" y="655" width="85" height="160">
 				{{{STEP2_INPUT1}}}
@@ -136,14 +154,14 @@
 		<img id="mainImg" src="img/trainer1-step2/1.png" alt="">
 	</div>
 	<script>
-		$(function() {
+		$(function () {
 			var positions = getForeignObjectsPositions();
 			for (var i = 0; i < positions.length; i += 2) {
 				$('.step2-inputs:eq(' + i / 2 + ')').attr("x", positions[i]);
 				$('.step2-inputs:eq(' + i / 2 + ')').attr("y", positions[i + 1]);
 			}
 		});
-		
+
 		function getForeignObjectsPositions() {
 			switch (userVariant) {
 				case '1':
@@ -166,6 +184,6 @@
 			}
 		}
 	</script>
-    <div id="chart" style="height: 20px;">{{{DIAG}}}</div>
-	<button class="btn btn-success pull-right check">{{CHECK}}</button>
+	<div id="chart" style="height: 20px;">{{{DIAG}}}</div>
+	<button style="margin-right: 75px;" class="btn btn-success pull-right check">{{CHECK}}</button>
 </div>

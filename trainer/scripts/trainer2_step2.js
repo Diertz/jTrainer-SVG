@@ -6,6 +6,7 @@ var trainer2_step2 = function () {
     $("#step1").empty();
   };
   this.postDispatch = function () {
+    $(":input").attr("autocomplete", "off");
     var options = {
       x: [50, 10, -25, 15, 20, -30, 10, 5, 20, -10],
       y: [25, 10, 40, -30, 20, -20, -10, 5, 25, -50],
@@ -21,14 +22,15 @@ var trainer2_step2 = function () {
     VStep2.addValidator($('input[name="step2-input-x"]'), options.x[userVariant - 1]);
     VStep2.addValidator($('input[name="step2-input-y"]'), options.y[userVariant - 1]);
     VStep2.addValidator($('input[name="step2-input-z"]'), options.z[userVariant - 1]);
-    VStep2.addSvgStep(order, imgInfo, null, () => {
+    VStep2.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false);
+    addSvgStep(order, imgInfo, null, VStep2, () => {
       $(".step2-inputs").css("visibility", "visible");
     });
-    VStep2.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false);
     $("button.check").click(function () {
+      const saveAttempts = VStep2.getAttempts();
       VStep2.setAttemptsOnCheckButton($(this));
       VStep2.validate();
-      if (VStep2.getFulfilled() && VStep2.getAttempts() > 0) {
+      if (saveAttempts == VStep2.getAttempts() && VStep2.getAttempts() > 0) {
         $(".step2-inputs").css("visibility", "hidden");
         $("#mainImg").attr("src", "img/trainer2-step2/4-" + userVariant + ".png");
         $("button.check").off("click");
@@ -40,15 +42,12 @@ var trainer2_step2 = function () {
     return {
       STEP2_INPUT_X: new TextInput("step2-input-x")
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP2_INPUT_Y: new TextInput("step2-input-y")
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP2_INPUT_Z: new TextInput("step2-input-z")
         .placeholder("")
-        .autocomplete("off")
         .render(),
     };
   };

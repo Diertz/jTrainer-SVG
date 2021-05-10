@@ -3,6 +3,8 @@ const imgPath = "img/trainer1-step1/";
 
 var trainer1_step1 = function () {
   this.postDispatch = function () {
+    $("navbar navbar-default").css("display", "none");
+    $(":input").attr("autocomplete", "off");
     $("#endTrainer").removeClass("disabled btn-default");
     $(".part:gt(5)").hide();
     $(".part:gt(24)").css("opacity", "0");
@@ -27,14 +29,15 @@ var trainer1_step1 = function () {
     VStep1.addValidator($('input[name="step1-input-length"]'), options.length[userVariant - 1]);
     VStep1.addValidator($('input[name="step1-input-width"]'), options.width[userVariant - 1]);
     VStep1.addValidator($('input[name="step1-input-height"]'), options.height[userVariant - 1]);
-    VStep1.addSvgStep(order, imgInfo, partIdsBorders, () => {
+    VStep1.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false);
+    addSvgStep(order, imgInfo, partIdsBorders, VStep1, () => {
       $(".step1-inputs").css("visibility", "visible");
     });
-    VStep1.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false);
     $("button.check").click(function () {
+      const saveAttempts = VStep1.getAttempts();
       VStep1.setAttemptsOnCheckButton($(this));
       VStep1.validate();
-      if (VStep1.getFulfilled() && VStep1.getAttempts() > 0) {
+      if (saveAttempts == VStep1.getAttempts() && VStep1.getAttempts() > 0) {
         $(".step1-inputs").css("visibility", "hidden");
         $("#mainImg").attr("src", "img/trainer1-step1/7-" + userVariant + ".png");
         $("button.check").off("click");
@@ -46,15 +49,12 @@ var trainer1_step1 = function () {
     return {
       STEP1_INPUT_LENGTH: new TextInput("step1-input-length")
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP1_INPUT_WIDTH: new TextInput("step1-input-width")
         .placeholder("")
-        .autocomplete("off")
         .render(),
       STEP1_INPUT_HEIGHT: new TextInput("step1-input-height")
         .placeholder("")
-        .autocomplete("off")
         .render(),
     };
   };

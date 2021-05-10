@@ -12,12 +12,12 @@ var trainer2_step1 = function () {
       order: [options[userVariant - 1]],
     };
     VStep1 = new Validator();
-    VStep1.addSvgStep(order, imgInfo, null, () => {
+    VStep1.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false);
+    addSvgStep(order, imgInfo, null, VStep1, () => {
       $("div.validation-alert-success").fadeIn();
       Scorer.addScore(25);
       Rotator.enableNextButton();
     });
-    VStep1.setStrictMode(true).enableStepFinishAlert(true).setIgnoreCase(false);
   };
 
   this.mustache = function () {
